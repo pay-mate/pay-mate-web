@@ -7,13 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/misc/register/register.component';
 import { LoginComponent } from './components/misc/login/login.component';
+import { GroupListComponent } from './components/group/group-list/group-list.component';
+import { GroupItemComponent } from './components/group/group-item/group-item.component';
+import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    GroupListComponent,
+    GroupItemComponent,
+    GroupDetailComponent
   ],
   imports: [
     BrowserModule,

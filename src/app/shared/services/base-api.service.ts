@@ -1,12 +1,9 @@
 import { ApiError } from './../models/api-error.model';
-import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from './../../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class BaseApiService {
   protected static readonly BASE_API = environment.baseApi;
   protected static readonly defaultOptions = {

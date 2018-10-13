@@ -1,3 +1,4 @@
 <h1>LISTADO DE GRUPOS</h1>
+<button type="button" (click)="onCreateGroup()">Create group</button>
 
 <app-group-item *ngFor= "let group of groups" [group]="group"></app-group-item>

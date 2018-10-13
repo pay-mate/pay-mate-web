@@ -1,3 +1,4 @@
+import { GroupService } from './../../../shared/services/group.service';
 import { Router } from '@angular/router';
 import { Group } from './../../../shared/models/group.model';
 import { Component, OnInit, Input } from '@angular/core';
@@ -13,6 +14,7 @@ export class GroupItemComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private groupService: GroupService
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,10 @@ export class GroupItemComponent implements OnInit {
   }
   onClickGroup() {
     this.router.navigate(['group/', this.group.id]);
+  }
+
+  onDeleteGroup() {
+    this.groupService.delete(this.group.id).subscribe(() => {} );
   }
 
 }

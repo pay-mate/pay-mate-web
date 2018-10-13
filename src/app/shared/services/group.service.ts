@@ -33,7 +33,6 @@ export class GroupService extends BaseApiService {
   }
 
   select(id: String): Observable<Group | ApiError> {
-    console.log('EL ID ES ->', id);
     return this.http.get<Group>(`${GroupService.GROUP_API}/${id}`, BaseApiService.defaultOptions)
     .pipe(
       map((group: Group) => Object.assign(new Group(), group)),

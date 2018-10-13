@@ -17,7 +17,6 @@ export class LoginComponent {
 
   onSubmitLogin(loginForm: FormGroup): void {
     if (loginForm.valid) {
-       console.log(this.sessionService);
       this.sessionService.authenticate(this.admin)
         .subscribe(
           () => {

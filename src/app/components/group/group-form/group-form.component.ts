@@ -20,10 +20,8 @@ export class GroupFormComponent implements OnInit {
 
   onSubmitGroupForm(): void {
     if (this.groupForm.valid) {
-      console.log('ESTO CHUTA');
       this.groupSubmit.emit(this.group);
     } else {
-      console.log('ESTO NO CHUTA');
     }
   }
 

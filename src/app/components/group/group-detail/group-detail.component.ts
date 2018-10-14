@@ -3,6 +3,7 @@ import { GroupService } from './../../../shared/services/group.service';
 import { Group } from './../../../shared/models/group.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../../shared/models/user.model';
 
 
 @Component({
@@ -12,11 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupDetailComponent implements OnInit {
   group: Group = new Group();
+  user: User = new User();
 
   constructor(
     private router: Router,
     private groupService: GroupService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {
@@ -30,11 +33,14 @@ export class GroupDetailComponent implements OnInit {
     });
   }
 
-  onUserDetails() {
-    this.router.navigate(['login']);
+  onUserDetails(userId: string) {
+    this.router.navigate(['groups/', this.group.id, 'users', userId]);
   }
 
-  onPaymentDetails() {
-    this.router.navigate(['register']);
+  onPaymentDetails(paymentId: string) {
+    console.log('EL PAYMENT ID', paymentId);
+    this.router.navigate(['groups/', this.group.id, 'payments', paymentId]);
   }
+
 }
+

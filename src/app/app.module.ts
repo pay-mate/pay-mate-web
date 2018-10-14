@@ -14,6 +14,7 @@ import { UserItemComponent } from './components/user/user-item/user-item.compone
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
 import { GroupFormComponent } from './components/group/group-form/group-form.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
+import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
     UserItemComponent,
     GroupCreateComponent,
     GroupFormComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

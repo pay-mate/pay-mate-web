@@ -21,7 +21,7 @@ export class LoginComponent {
         .subscribe(
           () => {
             loginForm.reset();
-            this.router.navigate(['/group']);
+            this.router.navigate(['/groups']);
           },
           (error: ApiError) => this.apiError = error
         );

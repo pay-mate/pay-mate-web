@@ -2,12 +2,14 @@
   <p>{{group.name}}</p>
 </div>
 
-<div *ngFor="let user of group.users">
+<!-- <div *ngFor="let user of group.users"> -->
+  <div *ngFor="let user of group.users" (click)="onUserDetails(user.id)">
   <div class="card-header d-flex justify-content-between align-items-center">
     <p>User Name {{ user.name}}</p>
     <p>User ID {{ user.id}}</p>
     <button (click)="onUserDetails()">Go to User Details</button>
   </div>
+
 </div>
 
 <div *ngFor="let payment of group.payments">
@@ -21,4 +23,5 @@
 
 <p>{{ group | json }}</p>
 
-(click)="onCreateGroup()"
+<button (click)="prueba()">Prueba1</button>
+<button (click)="userId()">Prueba2</button>

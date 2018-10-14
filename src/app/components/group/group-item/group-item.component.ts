@@ -21,7 +21,7 @@ export class GroupItemComponent implements OnInit {
 
   }
   onClickGroup() {
-    this.router.navigate(['group/', this.group.id]);
+    this.router.navigate(['groups/', this.group.id]);
   }
 
   onDeleteGroup() {

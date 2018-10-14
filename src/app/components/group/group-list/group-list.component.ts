@@ -15,7 +15,7 @@ export class GroupListComponent implements OnInit, OnDestroy {
   onGroupChangesSubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
     private groupService: GroupService
   ) {}
 
@@ -25,6 +25,9 @@ export class GroupListComponent implements OnInit, OnDestroy {
     this.onGroupChangesSubscription = this.groupService.onGroupChanges().subscribe((groups: Array<Group>) => this.groups = groups);
   }
 
+  onCreateGroup() {
+    this.router.navigate(['group/create']);
+  }
 
   ngOnDestroy(): void {
     this.onGroupChangesSubscription.unsubscribe();

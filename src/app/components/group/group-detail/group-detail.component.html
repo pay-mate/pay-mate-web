@@ -1,9 +1,24 @@
-<p>
-  group-detail works!
-</p>
-
 <div class="card-header d-flex justify-content-between align-items-center">
-  <p>{{ group.name }}</p> 
- <p>{{ group.id }}</p>  
-   </div>
- 
+  <p>{{group.name}}</p>
+</div>
+
+<div *ngFor="let user of group.users">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <p>User Name {{ user.name}}</p>
+    <p>User ID {{ user.id}}</p>
+    <button (click)="onUserDetails()">Go to User Details</button>
+  </div>
+</div>
+
+<div *ngFor="let payment of group.payments">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <p>Subject: {{ payment.subject}}</p>
+    <p>Amount: {{ payment.amount}}</p>
+    <p>Payment Id: {{ payment.id}}</p>
+    <button (click)="onPaymentDetails()">Go to User Details</button>
+  </div>
+</div>
+
+<p>{{ group | json }}</p>
+
+(click)="onCreateGroup()"

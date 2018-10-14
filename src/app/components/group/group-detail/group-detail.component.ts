@@ -1,8 +1,9 @@
-import { Subscription } from 'rxjs';
-import { GroupService } from '../../../shared/services/group.service';
-import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { GroupService } from './../../../shared/services/group.service';
 import { Group } from './../../../shared/models/group.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-group-detail',
@@ -10,19 +11,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./group-detail.component.css']
 })
 export class GroupDetailComponent implements OnInit {
-
   group: Group = new Group();
-  onGroupChangesSubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute,
-    private groupService: GroupService
+    private router: Router,
+    private groupService: GroupService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    console.log('SELECT->', this.groupService.select );
-    // this.groupService.select(groupId)
-    // .subscribe((group: Group) => this.group = group);
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+
+      this.groupService.select(groupId)
+        .subscribe(
+          (group: Group) => this.group = group
+        );
+    });
   }
 
+  onUserDetails() {
+    this.router.navigate(['login']);
+  }
+
+  onPaymentDetails() {
+    this.router.navigate(['register']);
+  }
 }

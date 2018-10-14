@@ -37,8 +37,9 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['groups/', this.group.id, 'users', userId]);
   }
 
-  onPaymentDetails() {
-    this.router.navigate(['register']);
+  onPaymentDetails(paymentId: string) {
+    console.log('EL PAYMENT ID', paymentId);
+    this.router.navigate(['groups/', this.group.id, 'payments', paymentId]);
   }
 
 }

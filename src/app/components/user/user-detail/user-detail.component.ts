@@ -1,6 +1,6 @@
 import { User } from './../../../shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from './../../../shared/services/users.service';
+import { UserService } from '../../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class UserDetailComponent implements OnInit {
   user: User = new User();
   constructor(
-    private router: Router,
     private userService: UserService,
     private route: ActivatedRoute,
   ) { }

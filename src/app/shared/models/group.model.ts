@@ -7,7 +7,8 @@ export class Group {
 
         data.append('id', this.id);
         data.append('name', this.name);
-
+        // data['id'] = this.id;
+        // data['name'] = this.name;
         return data;
       }
 }

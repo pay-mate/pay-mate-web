@@ -21,7 +21,6 @@ export class GroupFormComponent implements OnInit {
   onSubmitGroupForm(): void {
     if (this.groupForm.valid) {
       this.groupSubmit.emit(this.group);
-    } else {
     }
   }
 

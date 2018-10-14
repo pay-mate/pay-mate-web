@@ -1,15 +1,10 @@
-<p>
-  group-form works!
-</p>
 
-<div>
-  <form (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
-    <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name" name="name" [(ngModel)]="group.name" #name="ngModel" required>
-    <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
-      Please enter a name.
-    </div>
-    <div>
-      <button type="submit" [disabled]="!groupForm.valid">Add a group</button>
-    </div>
-  </form>
-</div>
+<form (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
+  <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name" name="name" [(ngModel)]="group.name" #name="ngModel" required>
+  <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+    Please enter a name.
+  </div>
+  <div>
+    <button type="submit" [disabled]="!groupForm.valid">Add a group</button>
+  </div>
+</form>

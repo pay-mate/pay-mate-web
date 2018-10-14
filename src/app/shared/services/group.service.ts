@@ -50,7 +50,8 @@ export class GroupService extends BaseApiService {
     }
 
     create(group: Group): Observable <Group | ApiError> {
-      return this.http.post<Group>(`${GroupService.GROUP_API}`, group.asFormData())
+      return this.http.post<Group>(`${GroupService.GROUP_API}`, group, BaseApiService.defaultOptions )// --> Con body y el json directamente
+      // return this.http.post<Group>(`${GroupService.GROUP_API}`, group.asFormData(), { withCredentials: true }) // --> con FormData
       .pipe(
         // tslint:disable-next-line:no-shadowed-variable
         map((group: Group) => {

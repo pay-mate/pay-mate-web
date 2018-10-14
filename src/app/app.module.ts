@@ -10,10 +10,10 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { GroupListComponent } from './components/group/group-list/group-list.component';
 import { GroupItemComponent } from './components/group/group-item/group-item.component';
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
-import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserItemComponent } from './components/user/user-item/user-item.component';
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
 import { GroupFormComponent } from './components/group/group-form/group-form.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
 
 
 @NgModule({
@@ -24,10 +24,10 @@ import { GroupFormComponent } from './components/group/group-form/group-form.com
     GroupListComponent,
     GroupItemComponent,
     GroupDetailComponent,
-    UserListComponent,
     UserItemComponent,
     GroupCreateComponent,
-    GroupFormComponent
+    GroupFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

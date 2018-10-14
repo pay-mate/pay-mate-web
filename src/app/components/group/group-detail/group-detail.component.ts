@@ -38,6 +38,3 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['register']);
   }
 }
-
-
-

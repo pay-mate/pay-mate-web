@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -9,8 +10,10 @@ import { GroupDetailComponent } from './components/group/group-detail/group-deta
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
 
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
-import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
 
+import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
+import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 
 
 const routes: Routes = [

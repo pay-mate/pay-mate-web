@@ -27,6 +27,19 @@ export class PaymentService extends BaseApiService {
     super();
   }
 
+  create (groupId: string, payment: Payment): Observable <Payment | ApiError> {
+    return this.http.post<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}`, BaseApiService.defaultOptions)
+    .pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      map((payment: Payment) => {
+        payment = Object.assign(new Payment(), payment);
+        this.payments.push(payment);
+        this.notifyPaymentChanges();
+        return payment;
+      }),
+      catchError(this.handleError));
+  }
+
   select(groupId: string, id: String): Observable<Payment | ApiError> {
     return this.http.get<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(

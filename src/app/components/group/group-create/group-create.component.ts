@@ -2,9 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Group } from './../../../shared/models/group.model';
-
 import { GroupFormComponent } from './../group-form/group-form.component';
-
 import { GroupService } from './../../../shared/services/group.service';
 
 @Component({

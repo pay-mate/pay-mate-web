@@ -2,9 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { User } from './../../../shared/models/user.model';
-
 import { UserFormComponent } from './../user-form/user-form.component';
-
 import { UserService } from './../../../shared/services/user.service';
 
 @Component({

@@ -1,6 +1,8 @@
 import { FormGroup } from '@angular/forms';
-import { Group } from './../../../shared/models/group.model';
+
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
+
+import { Group } from './../../../shared/models/group.model';
 
 @Component({
   selector: 'app-group-form',

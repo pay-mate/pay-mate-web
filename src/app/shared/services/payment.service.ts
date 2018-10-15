@@ -34,8 +34,8 @@ export class PaymentService extends BaseApiService {
         catchError(this.handleError));
   }
 
-  delete(groupId: string, id: String): Observable<Payment | ApiError> {
-    return this.http.delete<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}/${id}`, BaseApiService.defaultOptions)
+  delete(groupId: string, id: String): Observable<void | ApiError> {
+    return this.http.delete<void>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         tap(() => {
           this.payments = this.payments.filter(payment => payment.id !== id);

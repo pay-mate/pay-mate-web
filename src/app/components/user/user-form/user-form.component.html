@@ -1,0 +1,20 @@
+<p>
+  user-form works!
+</p>
+
+
+<form (ngSubmit)="onSubmitUserForm()" #userForm="ngForm">
+  <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+  <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+    Please enter a name.
+  </div>
+
+  <!-- <input type="text" [ngClass]="{'is-invalid': group.touched && group.errors}" placeholder="User group" name="group" [(ngModel)]="user.group" #name="ngModel" required>
+  <div class="invalid-feedback" *ngIf="group.errors && group.touched && group.errors.required">
+    Please enter a group.
+  </div> -->
+
+  <div>
+    <button type="submit" [disabled]="!userForm.valid">Add an User</button>
+  </div>
+</form>

@@ -19,6 +19,20 @@ export class GroupService extends BaseApiService {
     super();
   }
 
+  create(group: Group): Observable <Group | ApiError> {
+    return this.http.post<Group>(`${GroupService.GROUP_API}`, group, BaseApiService.defaultOptions )// --> Con body y el json directamente
+    // return this.http.post<Group>(`${GroupService.GROUP_API}`, group.asFormData(), { withCredentials: true }) // --> con FormData
+    .pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      map((group: Group) => {
+        group = Object.assign(new Group(), group);
+        this.groups.push(group);
+        this.notifyGroupsChanges();
+        return group;
+      }),
+      catchError(this.handleError));
+  }
+
   list(): Observable<Array<Group> | ApiError> {
     return this.http.get<Array<Group>>(`${GroupService.GROUP_API}`, BaseApiService.defaultOptions)
       .pipe(
@@ -48,21 +62,6 @@ export class GroupService extends BaseApiService {
     }),
       catchError(this.handleError));
     }
-
-    create(group: Group): Observable <Group | ApiError> {
-      return this.http.post<Group>(`${GroupService.GROUP_API}`, group, BaseApiService.defaultOptions )// --> Con body y el json directamente
-      // return this.http.post<Group>(`${GroupService.GROUP_API}`, group.asFormData(), { withCredentials: true }) // --> con FormData
-      .pipe(
-        // tslint:disable-next-line:no-shadowed-variable
-        map((group: Group) => {
-          group = Object.assign(new Group(), group);
-          this.groups.push(group);
-          this.notifyGroupsChanges();
-          return group;
-        }),
-        catchError(this.handleError));
-    }
-
 
   onGroupChanges(): Observable<Array<Group>> {
     return this.groupsSubject.asObservable();

@@ -14,6 +14,10 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 import { GroupFormComponent } from './components/group/group-form/group-form.component';
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
+import { UserFormComponent } from './components/user/user-form/user-form.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
+import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
+import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { PaymentDetailComponent } from './components/payment/payment-detail/paym
     GroupCreateComponent,
     GroupFormComponent,
     UserDetailComponent,
-    PaymentDetailComponent
+    PaymentDetailComponent,
+    UserFormComponent,
+    UserCreateComponent,
+    PaymentCreateComponent,
+    PaymentFormComponent
   ],
   imports: [
     BrowserModule,

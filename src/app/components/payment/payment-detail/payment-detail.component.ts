@@ -27,6 +27,17 @@ export class PaymentDetailComponent implements OnInit {
         );
     });
   }
+
+  onDeletePayment() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      const paymentId = params.paymentId;
+      this.paymentService.delete(groupId, paymentId)
+        .subscribe(() => { });
+    }
+    );
+  }
+
 }
 
 

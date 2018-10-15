@@ -11,19 +11,6 @@
 
 </div>
 
-<!-- <div *ngFor="let payment of group.payments" (clicl)="onPaymentDetails(payment.id)">
-  <div class="card-header d-flex justify-content-between align-items-center">
-    <p>Status: {{payment.status}}</p>
-    <p>Subject: {{payment.subject}}</p>
-    <p>Amount: {{payment.amount}}</p>
-    <p>Payment Id: {{payment.id}}</p>
-    <!-- <button (click)="onPaymentDetails()">Go to Payment Details</button> -->
-  <!-- </div> -->
-<!-- </div> --> -->
-<p>GROUP JSON</p>
-<p>{{ group | json }}</p>
-
-
 <div *ngFor="let payment of group.payments" (click)="onPaymentDetails(payment.id)">
   <div class="card-header d-flex justify-content-between align-items-center">
       <p>Status: {{payment.status}}</p>
@@ -33,3 +20,10 @@
       <button (click)="onPaymentDetails()">Go to Payment Details</button>
   </div>
 </div>
+
+<app-user-form>Create New User</app-user-form>
+
+<p>GROUP JSON</p>
+<p>{{ group | json }}</p>
+
+

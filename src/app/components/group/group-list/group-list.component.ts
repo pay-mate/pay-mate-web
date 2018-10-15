@@ -26,7 +26,7 @@ export class GroupListComponent implements OnInit, OnDestroy {
   }
 
   onCreateGroup() {
-    this.router.navigate(['group/create']);
+    this.router.navigate(['groups/create']);
   }
 
   ngOnDestroy(): void {

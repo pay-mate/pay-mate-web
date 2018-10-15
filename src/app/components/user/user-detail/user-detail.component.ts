@@ -19,7 +19,7 @@ export class UserDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       const groupId = params.groupId;
       const userId = params.userId;
-      console.log('LOS PARAMS', params);
+      // console.log('LOS PARAMS', params);
 
       this.userService.select(groupId, userId)
         .subscribe(
@@ -28,4 +28,12 @@ export class UserDetailComponent implements OnInit {
     });
   }
 
+  onDeleteUser() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      const userId = this.user.id;
+    this.userService.delete(groupId, userId)
+      .subscribe(() => {});
+  }
+    ); }
 }

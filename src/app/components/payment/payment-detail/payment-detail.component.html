@@ -3,3 +3,9 @@
 </p>
 
 <p>{{ payment | json }}</p>
+
+{{payment.subject}}
+{{payment.id}}
+{{payment.amount}}
+<button type="button" (click)="onDeletePayment()">Delete payment</button>
+

@@ -12,7 +12,7 @@ export class UserDetailComponent implements OnInit {
   user: User = new User();
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -32,8 +32,9 @@ export class UserDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       const groupId = params.groupId;
       const userId = this.user.id;
-    this.userService.delete(groupId, userId)
-      .subscribe(() => {});
+      this.userService.delete(groupId, userId)
+        .subscribe(() => { });
+    }
+    );
   }
-    ); }
 }

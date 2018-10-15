@@ -1,7 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { Payment } from './../../../shared/models/payment.model';
+import { PaymentFormComponent } from './../payment-form/payment-form.component';
 import { PaymentService } from './../../../shared/services/payment.service';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-payment-create',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-create.component.css']
 })
 export class PaymentCreateComponent implements OnInit {
-
+  @ViewChild(PaymentFormComponent) paymentFormComponent: PaymentFormComponent;
   payment: Payment = new Payment();
 
   constructor(
@@ -31,14 +33,21 @@ export class PaymentCreateComponent implements OnInit {
     });
 }
 
+onSubmitCreatePaymentForm(groupId: string, payment: Payment): void {
+  this.paymentService.create(groupId, payment)
+  // tslint:disable-next-line:no-shadowed-variable
+  .subscribe((payment: Payment) => {
+    this.paymentFormComponent.reset();
+  });
+}
+
 onDeletePayment() {
   this.route.params.subscribe(params => {
     const groupId = params.groupId;
     const paymentId = this.payment.id;
     this.paymentService.delete(groupId, paymentId)
       .subscribe(() => { });
-  }
-  );
+  });
 }
 
 }

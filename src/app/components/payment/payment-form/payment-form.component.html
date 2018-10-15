@@ -1,3 +1,48 @@
 <p>
   payment-form works!
 </p>
+
+<div class="row mb-5">
+  <div class="col-12">
+    <form (ngSubmit)="onSubmitPaymentForm()" #paymentForm="ngForm">
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-tag"></i></span>
+        </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': subject.touched && subject.errors}" placeholder="Subjet"
+          name="subject" [(ngModel)]="payment.subject" #name="ngModel" required>
+        <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
+          Please enter a subject.
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-tag"></i></span>
+          </div>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': amount.touched && amount.errors}" placeholder="Amount"
+            name="amount" [(ngModel)]="payment.amount" #name="ngModel" required>
+          <div class="invalid-feedback" *ngIf="amount.errors && amount.touched && amount.errors.required">
+            Please enter an amount.
+          </div>
+        </div>
+      
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fa fa-tag"></i></span>
+            </div>
+            <input type="text" class="form-control" [ngClass]="{'is-invalid': payer.touched && payert.errors}" placeholder="Payer"
+              name="payer" [(ngModel)]="payment.payer" #name="ngModel" required>
+            <div class="invalid-feedback" *ngIf="payer.errors && payer.touched && payer.errors.required">
+              Please enter an payer.
+            </div>
+          </div>
+      
+    
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!paymentForm.valid">Add Payment</button>
+      </div>
+    </form>
+  </div>
+</div>

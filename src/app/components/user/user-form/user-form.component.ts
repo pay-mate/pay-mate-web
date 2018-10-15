@@ -1,6 +1,5 @@
 import { FormGroup } from '@angular/forms';
-
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 import { User } from '../../../shared/models/user.model';
 

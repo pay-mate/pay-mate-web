@@ -49,5 +49,9 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['groups/', this.group.id, 'payments', 'create']);
   }
 
+  onLinkDebts() {
+    this.router.navigate(['groups/', this.group.id, 'debts']);
+  }
+
 }
 

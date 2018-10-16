@@ -21,6 +21,7 @@ import { UserFormComponent } from './components/user/user-form/user-form.compone
 import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
 import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
+import { GroupResultComponent } from './components/group/group-result/group-result.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { PaymentFormComponent } from './components/payment/payment-form/payment-
     UserFormComponent,
     PaymentDetailComponent,
     PaymentCreateComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    GroupResultComponent
   ],
   imports: [
     BrowserModule,

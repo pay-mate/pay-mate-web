@@ -1,6 +1,9 @@
 <nav class="nav-extended">
     <div class="nav-content center">
       <span class="nav-title">{{group.name}}</span>
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+        <i class="material-icons" (click)="onLinkDebts()">account_balance</i>
+      </a>
     </div>
 </nav>
 
@@ -8,7 +11,7 @@
   <div class="nav-content center">
     <span class="nav-title">Usuarios del grupos</span>
     <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-      <i class="material-icons" (click)="onLinkCreateUser()" >add</i>
+      <i class="material-icons" (click)="onLinkCreateUser()" >person_add</i>
     </a>
   </div>
 </nav>
@@ -38,7 +41,7 @@
     <div class="nav-content center">
       <span class="nav-title">Pagos del grupos</span>
       <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-        <i class="material-icons" (click)="onLinkCreatePayment()" >add</i>
+        <i class="material-icons" (click)="onLinkCreatePayment()" >add_shopping_cart</i>
       </a>
     </div>
 </nav>

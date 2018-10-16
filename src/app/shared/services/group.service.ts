@@ -63,6 +63,13 @@ export class GroupService extends BaseApiService {
       catchError(this.handleError));
     }
 
+    result(id: String): Observable<Group | ApiError> {
+      return this.http.get<Group>(`${GroupService.GROUP_API}/${id}/result`, BaseApiService.defaultOptions)
+      .pipe(
+        map((group: Group) => Object.assign(new Group(), group)),
+        catchError(this.handleError));
+    }
+
   onGroupChanges(): Observable<Array<Group>> {
     return this.groupsSubject.asObservable();
   }

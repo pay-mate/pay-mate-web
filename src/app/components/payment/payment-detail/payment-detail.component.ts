@@ -33,7 +33,7 @@ export class PaymentDetailComponent implements OnInit {
       const groupId = params.groupId;
       const paymentId = params.paymentId;
       this.paymentService.delete(groupId, paymentId)
-        .subscribe(() => { });
+        .subscribe(() => {});
     }
     );
   }

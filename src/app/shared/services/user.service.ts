@@ -1,3 +1,4 @@
+import { Group } from './../models/group.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -18,6 +19,7 @@ export class UserService extends BaseApiService {
   private static readonly USER_API = `/users`;
 
   private users: Array<User> = [];
+  private group: Group = new Group();
   private usersSubject: Subject<Array<User>> = new Subject();
 
   constructor(
@@ -27,16 +29,31 @@ export class UserService extends BaseApiService {
   }
 
   create(groupId: string, user: User): Observable <User | ApiError> {
-    return this.http.post<User>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}/`, user, BaseApiService.defaultOptions )
+
+    return this.http.post<User>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}`, user, BaseApiService.defaultOptions )
     .pipe(
       // tslint:disable-next-line:no-shadowed-variable
       map((user: User) => {
         user = Object.assign(new User(), user);
         this.users.push(user);
         this.notifyUsersChanges();
+        console.log('SERVICE CREATE', user);
         return user;
       }),
       catchError(this.handleError));
+  }
+
+  list(groupId: string): Observable<Array<User> | ApiError> {
+    return this.http.get<Array<User>>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}/`, BaseApiService.defaultOptions)
+    .pipe(
+      map ((users: Array<User>) => {
+        users = users.map(user => Object.assign(new User(), user));
+        this.users = users;
+        this.notifyUsersChanges();
+        return users;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   select(groupId: string, id: String): Observable<User | ApiError> {

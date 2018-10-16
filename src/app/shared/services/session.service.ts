@@ -49,6 +49,10 @@ export class SessionService extends BaseApiService {
     return this.adminSubject.asObservable();
   }
 
+  isAuthenticated(): boolean {
+    return this.admin ? true : false;
+  }
+
   private notifyAdminChanges(): void {
     this.adminSubject.next(this.admin);
   }

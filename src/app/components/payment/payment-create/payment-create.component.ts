@@ -16,33 +16,22 @@ export class PaymentCreateComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
-    private route: ActivatedRoute
+    private routes: ActivatedRoute
   ) { }
 
-
-
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const groupId = params.groupId;
-      const paymentId = params.paymentId;
-
-      this.paymentService.select(groupId, paymentId)
-        .subscribe(
-          (payment: Payment) => this.payment = payment
-        );
-    });
 }
 
-onSubmitCreatePaymentForm(groupId: string, payment: Payment): void {
-  this.paymentService.create(groupId, payment)
-  // tslint:disable-next-line:no-shadowed-variable
-  .subscribe((payment: Payment) => {
-    this.paymentFormComponent.reset();
+onSubmitCreatePaymentForm(payment: Payment) {
+  this.routes.params.subscribe(params => {
+    const groupId = params.groupId;
+    this.paymentService.create(groupId, payment)
+      .subscribe(() => { });
   });
 }
 
 onDeletePayment() {
-  this.route.params.subscribe(params => {
+  this.routes.params.subscribe(params => {
     const groupId = params.groupId;
     const paymentId = this.payment.id;
     this.paymentService.delete(groupId, paymentId)

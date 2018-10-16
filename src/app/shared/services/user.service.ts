@@ -1,3 +1,4 @@
+import { Group } from './../models/group.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -18,6 +19,7 @@ export class UserService extends BaseApiService {
   private static readonly USER_API = `/users`;
 
   private users: Array<User> = [];
+  private group: Group = new Group();
   private usersSubject: Subject<Array<User>> = new Subject();
 
   constructor(
@@ -27,7 +29,8 @@ export class UserService extends BaseApiService {
   }
 
   create(groupId: string, user: User): Observable <User | ApiError> {
-    return this.http.post<User>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}/`, user, BaseApiService.defaultOptions )
+
+    return this.http.post<User>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}`, user, BaseApiService.defaultOptions )
     .pipe(
       // tslint:disable-next-line:no-shadowed-variable
       map((user: User) => {

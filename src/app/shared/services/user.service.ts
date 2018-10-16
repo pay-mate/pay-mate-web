@@ -37,9 +37,23 @@ export class UserService extends BaseApiService {
         user = Object.assign(new User(), user);
         this.users.push(user);
         this.notifyUsersChanges();
+        console.log('SERVICE CREATE', user);
         return user;
       }),
       catchError(this.handleError));
+  }
+
+  list(groupId: string): Observable<Array<User> | ApiError> {
+    return this.http.get<Array<User>>(`${UserService.GROUP_API}/${groupId}${UserService.USER_API}/`, BaseApiService.defaultOptions)
+    .pipe(
+      map ((users: Array<User>) => {
+        users = users.map(user => Object.assign(new User(), user));
+        this.users = users;
+        this.notifyUsersChanges();
+        return users;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   select(groupId: string, id: String): Observable<User | ApiError> {

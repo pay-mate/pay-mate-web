@@ -1,8 +1,3 @@
-<p>
-  user-form works!
-</p>
-
-
 <form (ngSubmit)="onSubmitUserForm()" #userForm="ngForm">
   <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
   <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">

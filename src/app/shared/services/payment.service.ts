@@ -16,7 +16,7 @@ import { BaseApiService } from './base-api.service';
 export class PaymentService extends BaseApiService {
 
   private static readonly GROUP_API = `${BaseApiService.BASE_API}/groups`;
-  private static readonly PAY_API = `/payments`;
+  private static readonly PAY = `/payments`;
 
   private payments: Array<Payment> = [];
   private paymentsSubject: Subject<Array<Payment>> = new Subject();
@@ -27,11 +27,11 @@ export class PaymentService extends BaseApiService {
     super();
   }
 
-  create (groupId: string, payment: Payment): Observable <Payment | ApiError> {
-    return this.http.post<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}`, BaseApiService.defaultOptions)
+  create(groupId: string, payment: Payment): Observable <Payment | ApiError> {
+    return this.http.post<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY}`, payment, BaseApiService.defaultOptions )
     .pipe(
       // tslint:disable-next-line:no-shadowed-variable
-      map((payment: Payment) => {
+      map((payment: Payment, groupId) => {
         payment = Object.assign(new Payment(), payment);
         this.payments.push(payment);
         this.notifyPaymentChanges();
@@ -41,14 +41,14 @@ export class PaymentService extends BaseApiService {
   }
 
   select(groupId: string, id: String): Observable<Payment | ApiError> {
-    return this.http.get<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.get<Payment>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         map((payment: Payment) => Object.assign(new Payment(), payment)),
         catchError(this.handleError));
   }
 
   delete(groupId: string, id: String): Observable<void | ApiError> {
-    return this.http.delete<void>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY_API}/${id}`, BaseApiService.defaultOptions)
+    return this.http.delete<void>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY}/${id}`, BaseApiService.defaultOptions)
       .pipe(
         tap(() => {
           this.payments = this.payments.filter(payment => payment.id !== id);

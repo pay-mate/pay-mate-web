@@ -21,29 +21,6 @@ export class UserCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSubmitCreateUserForm( user: User): void {
-  //   console.log('GROUP', groupId)
-  //   this.userService.create(groupId, user)
-  //   // tslint:disable-next-line:no-shadowed-variable
-  //   .subscribe((user: User) => {
-  //     this.userFormComponent.reset();
-  //   }
-
-  //   );
-  // }
-
-
-  // onSubmitCreateUserForm( user: User): void {
-  //   this.routes.params.subscribe(params => {
-  //     const groupId = params.groupId;
-  //     this.userService.create(groupId, user)
-  //       .subscribe(
-  //         (user: User) => this.user = user
-  //       );
-  //   });
-  //   }
-  //   }
-
     onSubmitCreateUserForm(user: User) {
       this.routes.params.subscribe(params => {
         const groupId = params.groupId;

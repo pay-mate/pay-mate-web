@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserDetailComponent implements OnInit {
   user: User = new User();
   constructor(
+    private router: Router,
     private userService: UserService,
     private route: ActivatedRoute
   ) { }
@@ -34,7 +35,18 @@ export class UserDetailComponent implements OnInit {
       const userId = this.user.id;
       this.userService.delete(groupId, userId)
         .subscribe(() => { });
-    }
-    );
+    });
+  }
+
+  onLinkCreatePayment() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+    this.router.navigate(['groups/', groupId, 'payments', 'create']);
+    });
+  }
+
+  onPaymentDetails(groupId: string, paymentId: string) {
+    console.log('EL PAYMENT ID', paymentId);
+    this.router.navigate(['groups/', groupId, 'payments', paymentId]);
   }
 }

@@ -1,8 +1,43 @@
-<p>
-  user-detail works!
-</p>
-{{user.name}}
-{{user.id}}
-<button type="button" (click)="onDeleteUser()">Delete user</button>
-<p>{{ user | json }}</p>
+<nav class="nav-extended">
+    <div class="nav-content center">
+      <span class="nav-title">{{user.name}}</span>
+    </div>
+</nav>
 
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{user.name}}</span>
+        </div>
+        <div class="card-action">
+            <button class="btn" type="button" (click)="onDeleteUser()">Delete user</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-extended teal lighten-2">
+      <div class="nav-content center">
+        <span class="nav-title">Pagos del usuario</span>
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+          <i class="material-icons" (click)="onLinkCreatePayment()" >add</i>
+        </a>
+      </div>
+  </nav>
+
+  <div class="row" *ngFor="let payment of user.payments" (click)="onPaymentDetails(groupId, payment.id)">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text" >
+            <span class="card-title">{{payment.subject}}</span>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+<p>{{user | json}}</p>
+    <p>{{ user | json }}</p>

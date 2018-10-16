@@ -23,7 +23,9 @@ const routes: Routes = [
     { path: 'groups', component: GroupListComponent},
     { path: 'groups/create', component: GroupCreateComponent },
     { path: 'groups/:groupId', component: GroupDetailComponent },
+    { path: 'groups/:groupId/users/create', component: UserCreateComponent  },
     { path: 'groups/:groupId/users/:userId', component: UserDetailComponent  },
+    { path: 'groups/:groupId/payments/create', component: PaymentCreateComponent  },
     { path: 'groups/:groupId/payments/:paymentId', component: PaymentDetailComponent  },
     { path: '**', component: LoginComponent }
 ];

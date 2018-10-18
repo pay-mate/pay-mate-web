@@ -4,6 +4,7 @@ import { User } from './../../../shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-detail',
@@ -32,12 +33,10 @@ export class UserDetailComponent implements OnInit {
         .subscribe(
           (user: User) => this.user = user
         );
-    });
 
-    this.route.params.subscribe(params => {
-      const groupId = params.groupId;
-      this.paymentsService.list(groupId).subscribe((payments: Array<Payment>) => this.payments = payments
-      );
+      this.paymentsService.list(groupId).subscribe((payments: Payment[]) => {
+        this.payments = payments.filter(p => p.payer === userId);
+      });
     });
   }
 

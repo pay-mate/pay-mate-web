@@ -36,9 +36,13 @@ export class UserFormComponent implements OnInit {
 }
 
   onSubmitUserForm(): void {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
     if (this.userForm.valid) {
       this.userSubmit.emit(this.user);
+      this.router.navigate(['groups/', groupId]);
     }
+  });
 }
 
   reset(): void {

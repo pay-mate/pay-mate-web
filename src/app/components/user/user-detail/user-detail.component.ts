@@ -1,3 +1,5 @@
+import { Payment } from './../../../shared/models/payment.model';
+import { PaymentService } from './../../../shared/services/payment.service';
 import { User } from './../../../shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../shared/services/user.service';
@@ -9,11 +11,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+
   user: User = new User();
+  payments: Payment[] = [];
+
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
-    private route: ActivatedRoute
+    private paymentsService: PaymentService
   ) { }
 
   ngOnInit() {
@@ -27,6 +33,12 @@ export class UserDetailComponent implements OnInit {
           (user: User) => this.user = user
         );
     });
+
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.paymentsService.list(groupId).subscribe((payments: Array<Payment>) => this.payments = payments
+      );
+    });
   }
 
   onDeleteUser() {
@@ -35,13 +47,14 @@ export class UserDetailComponent implements OnInit {
       const userId = this.user.id;
       this.userService.delete(groupId, userId)
         .subscribe(() => { });
+        this.router.navigate(['groups/', groupId]);
     });
   }
 
   onLinkCreatePayment() {
     this.route.params.subscribe(params => {
       const groupId = params.groupId;
-    this.router.navigate(['groups/', groupId, 'payments', 'create']);
+      this.router.navigate(['groups/', groupId, 'payments', 'create']);
     });
   }
 

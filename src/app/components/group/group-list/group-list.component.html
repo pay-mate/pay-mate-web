@@ -1,14 +1,12 @@
-<nav class="nav-extended">
+<nav class="nav-extended light-blue cyan z-depth-3">
     <div class="nav-content center">
-      <span class="nav-title">Listado de grupos</span>
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+      <span class="nav-title">Your groups list</span>
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
         <i class="material-icons" (click)="onCreateGroup()" >group_add</i>
       </a>
     </div>
   </nav>
 
-<div class="container background">
-  <div class="col s12">
+<div class="">
     <app-group-item *ngFor="let group of groups" [group]="group"></app-group-item>
-  </div>
 </div>

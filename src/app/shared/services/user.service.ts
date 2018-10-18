@@ -37,7 +37,6 @@ export class UserService extends BaseApiService {
         user = Object.assign(new User(), user);
         this.users.push(user);
         this.notifyUsersChanges();
-        console.log('SERVICE CREATE', user);
         return user;
       }),
       catchError(this.handleError));

@@ -1,4 +1,4 @@
-  {
+{
   "name": "pay-mate-web",
   "version": "0.0.0",
   "scripts": {
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "angular-custom-modal": "^1.2.0",
     "bootstrap": "^4.1.3",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
@@ -27,6 +28,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
+    "url-loader": "^1.1.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -11,12 +11,14 @@
     Please enter a amount
   </div>
 
-  <div class="input-field">
-    <select [(ngModel)]="payment.payer" name="payer">
-      <option *ngFor="let user of users" [value]="user.id" [text]="user.name"></option>
-    </select>
-  </div>
-
+  <label>Selecciona un pagador</label>
+  <select class="input-field col s12" [ngClass]="{'is-invalid': payer.touched && payer.errors}"  name="payer"
+  [(ngModel)]="payment.payer" #payer="ngModel" required>
+      <option *ngFor="let user of users" [value]="user.id" [text]="user.name"></option >
+  </select>
+  <div class="invalid-feedback" *ngIf="payer.errors && payer.touched && payer.errors.required">
+      Please select a payer
+    </div>
 
   <div>
     <button type="submit" [disabled]="!paymentForm.valid">Add a Paymnet</button>

@@ -15,6 +15,7 @@ export class GroupService extends BaseApiService {
   private groups: Array<Group> = [];
   private groupsSubject: Subject <Array<Group>> = new Subject();
 
+
   constructor(private http: HttpClient) {
     super();
   }

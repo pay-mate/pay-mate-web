@@ -1,5 +1,6 @@
 export class User {
-    id?: string;
+    id: string;
     name: string;
-    group?: string;
+    group: string;
+    image?: string;
 }

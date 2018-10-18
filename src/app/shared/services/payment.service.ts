@@ -14,16 +14,13 @@ import { BaseApiService } from './base-api.service';
   providedIn: 'root'
 })
 export class PaymentService extends BaseApiService {
-
   private static readonly GROUP_API = `${BaseApiService.BASE_API}/groups`;
   private static readonly PAY = `/payments`;
 
   private payments: Array<Payment> = [];
   private paymentsSubject: Subject<Array<Payment>> = new Subject();
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
     super();
   }
 
@@ -34,10 +31,23 @@ export class PaymentService extends BaseApiService {
       map((payment: Payment, groupId) => {
         payment = Object.assign(new Payment(), payment);
         this.payments.push(payment);
-        this.notifyPaymentChanges();
+        this.notifyPaymentsChanges();
         return payment;
       }),
       catchError(this.handleError));
+  }
+
+  list(groupId: string): Observable<Array<Payment> | ApiError> {
+    return this.http.get<Array<Payment>>(`${PaymentService.GROUP_API}/${groupId}${PaymentService.PAY}/`, BaseApiService.defaultOptions)
+    .pipe(
+      map ((payments: Array<Payment>) => {
+        payments = payments.map(payment => Object.assign(new Payment(), payment));
+        this.payments = payments;
+        this.notifyPaymentsChanges();
+        return payments;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   select(groupId: string, id: String): Observable<Payment | ApiError> {
@@ -52,7 +62,7 @@ export class PaymentService extends BaseApiService {
       .pipe(
         tap(() => {
           this.payments = this.payments.filter(payment => payment.id !== id);
-          this.notifyPaymentChanges();
+          this.notifyPaymentsChanges();
         }),
         catchError(this.handleError)
       );
@@ -63,7 +73,7 @@ export class PaymentService extends BaseApiService {
     return this.paymentsSubject.asObservable();
   }
 
-  private notifyPaymentChanges(): void {
+  private notifyPaymentsChanges(): void {
     this.paymentsSubject.next(this.payments);
   }
 

@@ -1,79 +1,42 @@
-<div class="container">
-    <h1>LOGIN</h1>
-    <form class="col s12" (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
-      <div class="col" > 
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }" name="email" [(ngModel)]="admin.email" #email="ngModel" required email>
-          <label for="icon_prefix">email</label>
-          <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.required">
-              Please chose an email
-            </div>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">https</i>
-          <input id="icon_telephone" type="password" class="validate form-control" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }" name="password" [(ngModel)]="admin.password" #password="ngModel" required>
-          <label for="icon_telephone">password</label>
-          <div class="invalid-feedback" *ngIf="password.errors && password.touched && password.errors.required">
-              Please enter your password.
-            </div>
-        </div>
-        <div class="invalid-feedback" *ngIf="apiError">
-            {{ apiError.message }}
-          </div>
-          <div class="row">
-          <div class="form-actions">
-              <button type="submit" class="btn btn-block" [disabled]="!loginForm.valid">Login</button>
-            </div>
-          </div>
-      </div>
-    </form>
-    <div>
-          <a class="btn btn-block" [routerLink]="['/register']">Register</a>
-      </div>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">Welcome Pay-Mate</a>
   </div>
-
-<!-- Bootstrap -->
-
-<!-- <div class="row justify-content-md-center">
-  <div class="col-4">
-    <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm"> -->
-      <!-- <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1"><i class="fa fa-user "></i></span>
-        </div> -->
-        <!-- <input type="email" class="form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }"
-          placeholder="Email" name="email" [(ngModel)]="admin.email" #email="ngModel" required email>
+</nav>
+<div class="container">
+  <form class="col s12" (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
+    <div class="col">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        <input id="icon_prefix" type="text" class="validate form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }"
+          name="email" [(ngModel)]="admin.email" #email="ngModel" required email>
+        <label for="icon_prefix">email</label>
         <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.required">
-          Please chose an email.
+          Please chose an email
         </div>
-        <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.email">
-          Please enter valid email.
-        </div> -->
-      <!-- </div> -->
-      <!-- <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-        </div> -->
-        <!-- <input type="password" class="form-control" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }"
-          placeholder="password" name="password" [(ngModel)]="admin.password" #password="ngModel" required>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">https</i>
+        <input id="icon_telephone" type="password" class="validate form-control" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }"
+          name="password" [(ngModel)]="admin.password" #password="ngModel" required>
+        <label for="icon_telephone">password</label>
         <div class="invalid-feedback" *ngIf="password.errors && password.touched && password.errors.required">
           Please enter your password.
-        </div> -->
-        <!-- <div class="invalid-feedback" *ngIf="apiError">
-          {{ apiError.message }}
         </div>
-      </div> -->
-      <!-- <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Login</button>
-      </div> -->
-    <!-- </form>
-  </div> 
-</div> -->
-
-<!-- <div class="row justify-content-md-center">
-  <div class="col-4">
-    <hr>
-    <a class="btn btn-success btn-block" [routerLink]="['/register']">Register</a>
-  </div>
-</div> -->
+      </div>
+      <div class="invalid-feedback" *ngIf="apiError">
+        {{ apiError.message }}
+      </div>
+      <div class="row">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-block" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <nav>
+    <div class="nav-wrapper light-blue cyan">
+      <a class="brand-logo " [routerLink]="['/register']">Not register yet ?</a>
+    </div>
+  </nav>
+</div>

@@ -20,7 +20,6 @@ export class UserCreateComponent implements OnInit {
 
   ngOnInit() {
   }
-
     onSubmitCreateUserForm(user: User) {
       this.routes.params.subscribe(params => {
         const groupId = params.groupId;

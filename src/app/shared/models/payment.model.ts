@@ -6,4 +6,5 @@ export class Payment {
     image?: string;
     enum?: string;
     payer: string;
+
 }

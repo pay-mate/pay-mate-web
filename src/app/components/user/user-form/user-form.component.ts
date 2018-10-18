@@ -1,10 +1,10 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../../shared/services/user.service';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 import { User } from '../../../shared/models/user.model';
-import { Observable } from 'rxjs';
+import { ApiError } from '../../../shared/models/api-error.model';
 
 @Component({
   selector: 'app-user-form',
@@ -17,10 +17,13 @@ export class UserFormComponent implements OnInit {
   @Output() userSubmit: EventEmitter<User> = new EventEmitter();
   @ViewChild('userForm') userForm: FormGroup;
   users: User[] = [];
+  apiError: ApiError;
 
   constructor(private changesDetector: ChangeDetectorRef,
     private usersService: UserService,
     private route: ActivatedRoute,
+    private router: Router,
+
   ) { }
 
   ngOnInit() {
@@ -33,10 +36,14 @@ export class UserFormComponent implements OnInit {
 }
 
   onSubmitUserForm(): void {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
     if (this.userForm.valid) {
       this.userSubmit.emit(this.user);
+      this.router.navigate(['groups/', groupId]);
     }
-  }
+  });
+}
 
   reset(): void {
     this.user = new User();
@@ -44,3 +51,4 @@ export class UserFormComponent implements OnInit {
   }
 
 }
+

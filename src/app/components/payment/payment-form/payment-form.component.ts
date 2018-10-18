@@ -5,7 +5,6 @@ import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Payment } from '../../../shared/models/payment.model';
 import { Subscription } from 'rxjs';
-import { UserListComponent } from '../../user/user-list/user-list.component';
 
 @Component({
   selector: 'app-payment-form',
@@ -19,7 +18,6 @@ export class PaymentFormComponent implements OnInit {
   @ViewChild('paymentForm') paymentForm: FormGroup;
   onUserChangesSubscription: Subscription;
 
-  @ViewChild(UserListComponent) UserListComponent: UserListComponent;
 
   users: Array<User> = [];
 

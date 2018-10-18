@@ -1,3 +1,4 @@
+import { ModalModule } from 'angular-custom-modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule} from '@angular/core';
@@ -22,7 +23,6 @@ import { PaymentDetailComponent } from './components/payment/payment-detail/paym
 import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
 import { GroupResultComponent } from './components/group/group-result/group-result.component';
-import { UserListComponent } from './components/user/user-list/user-list.component';
 
 
 @NgModule({
@@ -42,13 +42,13 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
     PaymentCreateComponent,
     PaymentFormComponent,
     GroupResultComponent,
-    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

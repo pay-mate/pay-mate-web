@@ -1,10 +1,26 @@
-<form (ngSubmit)="onSubmitUserForm()" #userForm="ngForm">
-  <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
-  <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
-    Please enter a name.
-  </div>
+<nav>
+    <div class="nav-wrapper amber lighten-1">
+      <a href="" class="brand-logo">Create your user</a>
+    </div>
+  </nav>
 
-  <div>
-    <button type="submit" [disabled]="!userForm.valid">Add an User</button>
-  </div>
-</form>
+<div class="container">
+    <form class="col s12" (ngSubmit)="onSubmitUserForm()" #userForm="ngForm">
+      <div class="col">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">people</i>
+          <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+          <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+              Please enter a name.
+            </div>
+        </div>
+        <div class="invalid-feedback" *ngIf="apiError">
+            {{ apiError.message }}
+          </div>
+        <div class="row">
+          <div class="form-actions">
+            <button type="submit" class="btn btn-block" [disabled]="!userForm.valid">Add user</button>
+          </div>
+        </div>
+      </div>
+    </form>

@@ -1,8 +1,10 @@
+import { User } from './../../../shared/models/user.model';
 import { GroupService } from './../../../shared/services/group.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Group } from './../../../shared/models/group.model';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-group-result',
@@ -12,12 +14,14 @@ import { Component, OnInit } from '@angular/core';
 export class GroupResultComponent implements OnInit {
 
   group: Group = new Group();
+  users: User[] = [];
   onGroupChangesSubscription: Subscription;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -27,6 +31,10 @@ export class GroupResultComponent implements OnInit {
       this.groupService.result(groupId)
         .subscribe(
           (group: Group) => this.group = group
+        );
+        this.userService.list(groupId)
+        .subscribe(
+          (users: Array<User>) => this.users = users
         );
     });
   }

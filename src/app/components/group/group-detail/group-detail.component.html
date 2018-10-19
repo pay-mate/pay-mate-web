@@ -6,7 +6,6 @@
     </a>
   </div>
 </nav>
-
 <nav class="nav-extended teal orange lighten-1 z-depth-3">
   <div class="nav-content center">
     <span class="nav-title">Payments</span>
@@ -15,7 +14,6 @@
     </a>
   </div>
 </nav>
-
 <div class="row" *ngFor="let payment of payments" (click)="onPaymentDetails(payment.id)">
   <div class="col s12 m7">
     <div class="card horizontal" (click)="onPaymentDetails(payment.id)">
@@ -33,7 +31,6 @@
     </div>
   </div>
 </div>
-
 <nav class="nav-extended teal amber lighten-1 z-depth-3">
   <div class="nav-content center">
     <span class="nav-title">Users</span>
@@ -42,7 +39,6 @@
     </a>
   </div>
 </nav>
-
 <div class="row" *ngFor="let user of users">
   <div class="col s12 m7">
     <div class="card horizontal" (click)="onUserDetails(user.id)">

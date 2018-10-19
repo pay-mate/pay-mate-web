@@ -1,3 +1,4 @@
+import { Debt } from './../../../shared/models/debt.model';
 import { User } from './../../../shared/models/user.model';
 import { GroupService } from './../../../shared/services/group.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,6 +16,8 @@ export class GroupResultComponent implements OnInit {
 
   group: Group = new Group();
   users: User[] = [];
+  result: Debt[] = [];
+  debt: Debt = new Debt();
   onGroupChangesSubscription: Subscription;
 
   constructor(
@@ -24,17 +27,19 @@ export class GroupResultComponent implements OnInit {
     private userService: UserService
   ) { }
 
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       const groupId = params.groupId;
 
+      this.userService.list(groupId)
+      .subscribe(
+        (users: Array<User>) => this.users = users
+      );
+
       this.groupService.result(groupId)
         .subscribe(
           (group: Group) => this.group = group
-        );
-        this.userService.list(groupId)
-        .subscribe(
-          (users: Array<User>) => this.users = users
         );
     });
   }

@@ -23,6 +23,7 @@ import { PaymentDetailComponent } from './components/payment/payment-detail/paym
 import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
 import { GroupResultComponent } from './components/group/group-result/group-result.component';
+import { NavComponent } from './components/misc/nav/nav.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { GroupResultComponent } from './components/group/group-result/group-resu
     PaymentCreateComponent,
     PaymentFormComponent,
     GroupResultComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

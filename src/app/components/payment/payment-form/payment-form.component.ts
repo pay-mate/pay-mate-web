@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { UserService } from './../../../shared/services/user.service';
 import { User } from './../../../shared/models/user.model';
 import { FormGroup } from '@angular/forms';
@@ -24,6 +24,7 @@ export class PaymentFormComponent implements OnInit {
   constructor(
     private usersService: UserService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,9 +37,13 @@ export class PaymentFormComponent implements OnInit {
 
 
   onSubmitPaymentForm(): void {
-    if (this.paymentForm.valid) {
-      this.paymentSubmit.emit(this.payment);
-    }
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      if (this.paymentForm.valid) {
+        this.paymentSubmit.emit(this.payment);
+        this.router.navigate(['groups/', groupId]);
+      }
+    });
   }
 
   reset(): void {

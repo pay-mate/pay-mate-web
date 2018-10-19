@@ -1,26 +1,46 @@
-<form (ngSubmit)="onSubmitPaymentForm()" #paymentForm="ngForm">
-  <input type="text" [ngClass]="{'is-invalid': subject.touched && subject.errors}" placeholder="Subject" name="subject"
-    [(ngModel)]="payment.subject" #subject="ngModel" required>
-  <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
-    Please enter a subject
+<nav>
+  <div class="nav-wrapper orange lighten-1">
+    <a href="" class="brand-logo">Create new payment</a>
   </div>
+</nav>
 
-  <input type="text" [ngClass]="{'is-invalid': amount.touched && amount.errors}" placeholder="Amount" name="name"
-    [(ngModel)]="payment.amount" #amount="ngModel" required>
-  <div class="invalid-feedback" *ngIf="amount.errors && amount.touched && amount.errors.required">
-    Please enter a amount
-  </div>
+<div class="container">
+  <form (ngSubmit)="onSubmitPaymentForm()" #paymentForm="ngForm">
+    <div class="col">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">local_offer</i>
+        <input type="text" [ngClass]="{'is-invalid': subject.touched && subject.errors}" placeholder="Subject" name="subject"
+          [(ngModel)]="payment.subject" #subject="ngModel" required>
+        <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
+          Please enter a subject
+        </div>
 
-  <label>Selecciona un pagador</label>
-  <select class="input-field col s12" [ngClass]="{'is-invalid': payer.touched && payer.errors}"  name="payer"
-  [(ngModel)]="payment.payer" #payer="ngModel" required>
-      <option *ngFor="let user of users" [value]="user.id" [text]="user.name"></option >
-  </select>
-  <div class="invalid-feedback" *ngIf="payer.errors && payer.touched && payer.errors.required">
-      Please select a payer
-    </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">attach_money</i>
+          <input type="number" [ngClass]="{'is-invalid': amount.touched && amount.errors}" placeholder="Amount" name="amount"
+            [(ngModel)]="payment.amount" #amount="ngModel" required>
+          <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
+            Please enter an amount
+          </div>
 
-  <div>
-    <button type="submit" [disabled]="!paymentForm.valid">Add a Paymnet</button>
-  </div>
-</form>
+          <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">person</i>
+                <label for="icon_prefix">Payer</label>
+              </div>
+            </div>
+
+          <select class="input-field col s12" [ngClass]="{'is-invalid': payer.touched && payer.errors}" name="payer"
+            [(ngModel)]="payment.payer" #payer="ngModel" required>
+            <option *ngFor="let user of users" [value]="user.id" [text]="user.name"></option>
+          </select>
+          <div class="invalid-feedback" *ngIf="payer.errors && payer.touched && payer.errors.required">
+            Please select a payer
+          </div>
+          <div class="row">
+
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-block" [disabled]="!paymentForm.valid">Add payment</button>
+            </div>
+          </div>

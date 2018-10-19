@@ -3,7 +3,6 @@
     <a href="" class="brand-logo">Create new payment</a>
   </div>
 </nav>
-
 <div class="container">
   <form (ngSubmit)="onSubmitPaymentForm()" #paymentForm="ngForm">
     <div class="col">
@@ -14,7 +13,6 @@
         <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
           Please enter a subject
         </div>
-
         <div class="input-field col s6">
           <i class="material-icons prefix">attach_money</i>
           <input type="number" [ngClass]="{'is-invalid': amount.touched && amount.errors}" placeholder="Amount" name="amount"
@@ -22,14 +20,12 @@
           <div class="invalid-feedback" *ngIf="subject.errors && subject.touched && subject.errors.required">
             Please enter an amount
           </div>
-
           <div class="row">
               <div class="input-field col s6">
                 <i class="material-icons prefix">person</i>
                 <label for="icon_prefix">Payer</label>
               </div>
             </div>
-
           <select class="input-field col s12" [ngClass]="{'is-invalid': payer.touched && payer.errors}" name="payer"
             [(ngModel)]="payment.payer" #payer="ngModel" required>
             <option *ngFor="let user of users" [value]="user.id" [text]="user.name"></option>
@@ -38,8 +34,6 @@
             Please select a payer
           </div>
           <div class="row">
-
-
             <div class="form-actions">
               <button type="submit" class="btn btn-block" [disabled]="!paymentForm.valid">Add payment</button>
             </div>

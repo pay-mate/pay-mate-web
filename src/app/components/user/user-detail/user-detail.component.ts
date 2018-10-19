@@ -57,8 +57,11 @@ export class UserDetailComponent implements OnInit {
     });
   }
 
-  onPaymentDetails(groupId: string, paymentId: string) {
+  onPaymentDetails(paymentId: string) {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
     console.log('EL PAYMENT ID', paymentId);
     this.router.navigate(['groups/', groupId, 'payments', paymentId]);
+    });
   }
 }

@@ -7,20 +7,16 @@
   </div>
 </nav>
 
-
 <nav class="nav-extended teal orange lighten-1 z-depth-3">
   <div class="nav-content center">
     <span class="nav-title">Payments</span>
-    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light light-green z-depth-2">
       <i class="material-icons" (click)="onLinkCreatePayment()">add_shopping_cart</i>
     </a>
   </div>
 </nav>
 
-
-
 <div class="row" *ngFor="let payment of payments" (click)="onPaymentDetails(payment.id)">
-
   <div class="col s12 m7">
     <div class="card horizontal" (click)="onPaymentDetails(payment.id)">
       <div class="card-image">
@@ -39,28 +35,27 @@
 </div>
 
 <nav class="nav-extended teal amber lighten-1 z-depth-3">
-    <div class="nav-content center">
-      <span class="nav-title">Users</span>
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
-        <i class="material-icons" (click)="onLinkCreateUser()">person_add</i>
-      </a>
-    </div>
-  </nav>
+  <div class="nav-content center">
+    <span class="nav-title">Users</span>
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
+      <i class="material-icons" (click)="onLinkCreateUser()">person_add</i>
+    </a>
+  </div>
+</nav>
 
-  <div class="row" *ngFor="let user of users">
-      <div class="col s12 m7">
-          <div class="card horizontal" (click)="onUserDetails(user.id)">
-            <div class="card-image">
-              <img src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                  <span class="card-title light-blue-text">{{user.name}}</span>
-                  <p class="" *ngFor="let payment of user.payments"><i class="tiny material-icons prefix">local_offer</i>  {{payment.subject}}</p>
-              </div>
-            </div>
-          </div>
+<div class="row" *ngFor="let user of users">
+  <div class="col s12 m7">
+    <div class="card horizontal" (click)="onUserDetails(user.id)">
+      <div class="card-image">
+        <img src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <span class="card-title light-blue-text">{{user.name}}</span>
+          <p class="" *ngFor="let payment of user.payments"><i class="tiny material-icons prefix">local_offer</i>
+            {{payment.subject}}</p>
         </div>
       </div>
-  
-
+    </div>
+  </div>
+</div>

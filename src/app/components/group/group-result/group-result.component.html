@@ -7,14 +7,25 @@
   <div class="col s12 m7">
     <div class="card card-content">
       <div class="card-content center card-title">
-        <div><img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">{{debt.debtor}}Debts {{debt.amount}}€ to <img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg"> To {{debt.destination}}</div>
+        <div>
+          <div>
+            <img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
+            <p>{{debt.debtorName}}</p>
+          </div>
+          <p>debts {{debt.amount}}€</p>
+          <div>
+            <img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
+            <p>to {{debt.destinationName}}</p>
+          </div>
+        </div>
       </div>
-      <div class="card-content center blue white-text col s6">
+      <!-- <div class="card-content center blue white-text col s6">
           <i class=" material-icons">credit_card</i>
       </div>
       <div class="card-content center grey col s6">
           <i class=" material-icons">check</i>
-        </div>
+        </div> -->
     </div>
   </div>
 </div>
+

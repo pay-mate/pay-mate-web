@@ -11,7 +11,7 @@
       <div class="card-stacked">
         <div class="card-content">
           <span class="card-title"> <i class="material-icons prefix">attach_money</i> {{payment.amount}}</span>
-          <span class="card-title"> <i class="material-icons prefix">date_range</i> {{payment.date}}</span>
+          <span class="card-title"> <i class="material-icons prefix">date_range</i>   {{payment.date | date: 'd/MM/yyyy'}}</span>
         </div>
         <div>
             <button class="card-title btn"><i class="material-icons prefix ">create</i></button>

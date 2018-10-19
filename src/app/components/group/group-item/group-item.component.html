@@ -4,13 +4,12 @@
       <img class="" src={{group.image}}>
     </div>
     <div class="card-content">
-      <span class="card-title grey-text text-darken-4">{{group.name}}<i class="material-icons right activator">more_vert</i></span>
-      <button (click)="onClickGroup()" class="btn light-blue cyan">Ir al grupo</button>
+      <span class="card-title grey-text text-darken-4" (click)="onClickGroup()">{{group.name}}<i class="material-icons right activator">more_vert</i></span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{group.name}}<i class="material-icons right">close</i></span>
       <button class="btn">Edit</button>
-      <button data-target="modal1" (click)="onDeleteGroup()" class="btn red lighten-1">Delete</button>
+      <button data-target="modal1" (click)="onDeleteGroup()" class="btn red lighten-1">Delete</button> 
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
   </div>

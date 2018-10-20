@@ -1,3 +1,11 @@
+<footer> 
+  <div class="footer-copyright" *ngIf="!admin"> 
+    <div class="container">
+      <a class="grey-text center" href="/groups"><i class="material-icons">home</i></a>
+      <a class="grey-text center" href="/login"><i class="material-icons right">power_settings_new</i></a>
+    </div>
+  </div>
+</footer>
 <nav class="nav-extended">
   <div class="nav-content center">
     <span class="nav-title">{{user.name}}</span>
@@ -28,11 +36,12 @@
       </a>
     </div>
   </nav>
+
   <div class="row" *ngFor="let payment of payments">
     <div class="col s12 m7">
       <div class="card horizontal" (click)="onPaymentDetails(payment.id)">
         <div class="card-image">
-          <img src="https://image.freepik.com/vector-gratis/plantilla-factura-moderna-estilo-ondulado_1017-14520.jpg">
+          <img src="{{payment.image}}">
         </div>
         <div class="card-stacked">
           <div class="card-content">
@@ -45,4 +54,6 @@
       </div>
     </div>
   </div>
+
+  
 

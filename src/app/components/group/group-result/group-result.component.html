@@ -1,3 +1,11 @@
+<footer> 
+  <div class="footer-copyright" *ngIf="!admin"> 
+    <div class="container">
+      <a class="grey-text center" href="/groups"><i class="material-icons">home</i></a>
+      <a class="grey-text center" href="/login"><i class="material-icons right">power_settings_new</i></a>
+    </div>
+  </div>
+</footer>
 <nav class="nav-extended">
   <div class="nav-content center">
     <span class="nav-title">Group debts</span>
@@ -9,12 +17,12 @@
       <div class="card-content center card-title">
         <div>
           <div>
-            <img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
+            <img class="btn-floating" src="{{debt.debtorImage}}">
             <p>{{debt.debtorName}}</p>
           </div>
-          <p>debts {{debt.amount}}€</p>
+          <p>owes {{debt.amount}}€</p>
           <div>
-            <img class="btn-floating" src="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">
+            <img class="btn-floating" src="{{debt.destinationImage}}">
             <p>to {{debt.destinationName}}</p>
           </div>
         </div>

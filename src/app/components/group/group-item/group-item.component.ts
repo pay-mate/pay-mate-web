@@ -26,6 +26,7 @@ export class GroupItemComponent implements OnInit {
 
   onDeleteGroup() {
     this.groupService.delete(this.group.id).subscribe(() => {} );
+    this.router.navigate(['groups/']);
   }
 
 }

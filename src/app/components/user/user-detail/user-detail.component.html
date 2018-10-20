@@ -1,32 +1,34 @@
 <nav class="nav-extended">
-    <div class="nav-content center">
-      <span class="nav-title">{{user.name}}</span>
-    </div>
+  <div class="nav-content center">
+    <span class="nav-title">{{user.name}}</span>
+  </div>
 </nav>
 <div class="col s12 m7">
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="{{user.image}}">
-      </div>
-      <div class="card-stacked">
-          <div class="card-content grey lighten-3 btn">
-          <p class="card-title teal-text">Update</p>
-          <i class=" material-icons prefix teal-text" >create</i>
+  <div class="card horizontal">
+    <div class="card-image">
+      <img src="{{user.image}}">
+    </div>
+    <div class="card-stacked">
+        <div class="card-content">
+            <span class="card-title">{{user.name}}</span>
+            <p class="" *ngFor="let payment of user.payments"><i class="tiny material-icons prefix">local_offer</i>
+              {{payment.subject}}</p>
           </div>
-          <div class="card-content grey lighten-3 btn" (click)="onDeleteUser()">
-              <p class="card-title red-text">Delete</p><i class=" material-icons prefix red-text" >delete</i> 
-              </div>
+      <div>
+        <!-- <button class="card-title btn"><i class="material-icons prefix ">create</i></button> -->
+        <button class="card-title btn red" (click)="onDeleteUser()"><i class="material-icons prefix ">delete</i></button>
       </div>
     </div>
+  </div>
   <nav class="nav-extended teal z-depth-3">
-      <div class="nav-content center">
-        <span class="nav-title">{{user.name}} payments</span>
-        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-            <i class="material-icons light-green z-depth-2" (click)="onLinkCreatePayment()">add_shopping_cart</i>
-        </a>
-      </div>
+    <div class="nav-content center">
+      <span class="nav-title">{{user.name}} payments</span>
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+        <i class="material-icons light-green z-depth-2" (click)="onLinkCreatePayment()">add_shopping_cart</i>
+      </a>
+    </div>
   </nav>
-    <div class="row" *ngFor="let payment of payments">
+  <div class="row" *ngFor="let payment of payments">
     <div class="col s12 m7">
       <div class="card horizontal" (click)="onPaymentDetails(payment.id)">
         <div class="card-image">
@@ -37,11 +39,9 @@
             <span class="card-title"><i class="material-icons prefix light-blue-text">local_offer</i>
               {{payment.subject}}</span>
             <span class="card-title"> <i class="material-icons prefix">attach_money</i> {{payment.amount}}</span>
-            <p class="card-title"> <i class="material-icons prefix">date_range</i> {{payment.date}}</p>
+            <p class="card-title"> <i class="material-icons prefix">date_range</i>  {{payment.date | date: 'd/MM/yyyy'}}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  

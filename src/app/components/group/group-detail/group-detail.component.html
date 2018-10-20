@@ -1,7 +1,7 @@
 <nav class="nav-extended light-blue cyan z-depth-3">
   <div class="nav-content center">
     <span class="nav-title">{{group.name}}</span>
-    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
+    <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal pulse z-depth-2">
       <i class="material-icons" (click)="onLinkDebts()">account_balance</i>
     </a>
   </div>
@@ -25,7 +25,7 @@
           <span class="card-title"><i class="material-icons prefix light-blue-text">local_offer</i>
             {{payment.subject}}</span>
           <span class="card-title"> <i class="material-icons prefix">attach_money</i> {{payment.amount}}</span>
-          <p class="card-title"> <i class="material-icons prefix">date_range</i> {{payment.date}}</p>
+          <p class="card-title"> <i class="material-icons prefix">date_range</i> {{payment.date | date: 'd/MM/yyyy'}}</p>
         </div>
       </div>
     </div>

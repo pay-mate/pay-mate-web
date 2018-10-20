@@ -44,6 +44,7 @@ onDeletePayment() {
     const paymentId = params.paymentId;
     this.paymentService.delete(groupId, paymentId)
       .subscribe(() => { });
+      this.router.navigate(['groups/', groupId]);
   }
   );
 }

@@ -10,11 +10,13 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
+            <span class="card-title"><i class="material-icons prefix">local_offer</i>
+              {{payment.subject}}</span>
           <span class="card-title"> <i class="material-icons prefix">attach_money</i> {{payment.amount}}</span>
           <span class="card-title"> <i class="material-icons prefix">date_range</i>   {{payment.date | date: 'd/MM/yyyy'}}</span>
         </div>
         <div>
-            <button class="card-title btn"><i class="material-icons prefix ">create</i></button>
+            <!-- <button class="card-title btn"><i class="material-icons prefix ">create</i></button> -->
             <button class="card-title btn red" (click)="onDeletePayment()"><i class="material-icons prefix " >delete</i></button>
         </div>
       </div>

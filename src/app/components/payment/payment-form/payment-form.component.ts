@@ -1,15 +1,16 @@
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { UserService } from './../../../shared/services/user.service';
-import { User } from './../../../shared/models/user.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { Payment } from '../../../shared/models/payment.model';
 import { Subscription } from 'rxjs';
+
+
+import { User } from './../../../shared/models/user.model';
+import { Payment } from '../../../shared/models/payment.model';
+import { UserService } from './../../../shared/services/user.service';
 
 @Component({
   selector: 'app-payment-form',
-  templateUrl: './payment-form.component.html',
-  styleUrls: ['./payment-form.component.css']
+  templateUrl: './payment-form.component.html'
 })
 export class PaymentFormComponent implements OnInit {
 

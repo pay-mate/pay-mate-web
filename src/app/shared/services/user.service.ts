@@ -1,13 +1,11 @@
-import { Group } from './../models/group.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { Subject, Observable } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
 import { User } from '../models/user.model';
 import { ApiError } from '../models/api-error.model';
-
+import { Group } from './../models/group.model';
 import { BaseApiService } from './base-api.service';
 
 @Injectable({
@@ -19,7 +17,6 @@ export class UserService extends BaseApiService {
   private static readonly USER_API = `/users`;
 
   private users: Array<User> = [];
-  private group: Group = new Group();
   private usersSubject: Subject<Array<User>> = new Subject();
 
   constructor(

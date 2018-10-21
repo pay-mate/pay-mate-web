@@ -8,11 +8,7 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "scss"
-        }
-      },
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -27,17 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
               "src/styles.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
-              "./node_modules/materialize-css/dist/css/materialize.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/materialize-css/dist/css/materialize.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/materialize-css/dist/js/materialize.js",
-              "./node_modules/popper.js/dist/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "./node_modules/materialize-css/dist/js/materialize.js"
             ]
           },
           "configurations": {
@@ -56,7 +48,14 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -85,15 +84,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "sass/src/styles.scss",
-              "sass/src/styles.css",
-              "./node_modules/font-awesome/css/font-awesome.min.css",
-              "node_modules/materialize-css/dist/css/materialize.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "node_modules/materialize-css/dist/js/materialize.min.js"
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -117,6 +110,7 @@
     "pay-mate-web-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",

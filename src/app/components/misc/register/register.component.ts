@@ -1,14 +1,14 @@
-import { Router } from '@angular/router';
-import { AdminService } from './../../../shared/services/admin.service';
-import { ApiError } from './../../../shared/models/api-error.model';
-import { Admin } from './../../../shared/models/admin.model';
 import { Component} from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { ApiError } from './../../../shared/models/api-error.model';
+import { Admin } from './../../../shared/models/admin.model';
+import { AdminService } from './../../../shared/services/admin.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent {
 

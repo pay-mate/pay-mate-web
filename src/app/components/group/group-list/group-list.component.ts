@@ -1,13 +1,13 @@
-import { GroupService } from '../../../shared/services/group.service';
-import { Group } from './../../../shared/models/group.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
+import { Group } from './../../../shared/models/group.model';
+import { GroupService } from '../../../shared/services/group.service';
 
 @Component({
   selector: 'app-group-list',
-  templateUrl: './group-list.component.html',
-  styleUrls: ['./group-list.component.css']
+  templateUrl: './group-list.component.html'
 })
 export class GroupListComponent implements OnInit, OnDestroy {
 

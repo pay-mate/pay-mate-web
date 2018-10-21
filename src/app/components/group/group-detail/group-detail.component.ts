@@ -1,18 +1,17 @@
-import { Payment } from './../../../shared/models/payment.model';
-import { map } from 'rxjs/operators';
-import { GroupService } from './../../../shared/services/group.service';
-import { Group } from './../../../shared/models/group.model';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { User } from '../../../shared/models/user.model';
+import { Payment } from './../../../shared/models/payment.model';
+import { Group } from './../../../shared/models/group.model';
 import { UserService } from '../../../shared/services/user.service';
 import { PaymentService } from '../../../shared/services/payment.service';
+import { GroupService } from './../../../shared/services/group.service';
 
 
 @Component({
   selector: 'app-group-detail',
-  templateUrl: './group-detail.component.html',
-  styleUrls: ['./group-detail.component.css']
+  templateUrl: './group-detail.component.html'
 })
 export class GroupDetailComponent implements OnInit {
   group: Group = new Group();

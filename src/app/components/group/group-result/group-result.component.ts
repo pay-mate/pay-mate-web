@@ -1,16 +1,17 @@
+
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Group } from './../../../shared/models/group.model';
 import { Debt } from './../../../shared/models/debt.model';
 import { User } from './../../../shared/models/user.model';
-import { GroupService } from './../../../shared/services/group.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Group } from './../../../shared/models/group.model';
-import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../shared/services/user.service';
+import { GroupService } from './../../../shared/services/group.service';
 
 @Component({
   selector: 'app-group-result',
-  templateUrl: './group-result.component.html',
-  styleUrls: ['./group-result.component.css']
+  templateUrl: './group-result.component.html'
 })
 export class GroupResultComponent implements OnInit {
 
@@ -21,7 +22,6 @@ export class GroupResultComponent implements OnInit {
   onGroupChangesSubscription: Subscription;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private groupService: GroupService,
     private userService: UserService

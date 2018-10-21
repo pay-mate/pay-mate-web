@@ -1,27 +1,27 @@
 <nav>
-    <div class="nav-wrapper light-blue cyan">
-      <a href="" class="brand-logo">Create your group</a>
-    </div>
-  </nav>
+  <div class="nav-wrapper light-blue cyan">
+    <a href="" class="brand-logo">Create your group</a>
+  </div>
+</nav>
 
 <div class="container">
-  <form class="col s12" (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
-    <div class="col">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">people</i>
-        <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name" name="name" [(ngModel)]="group.name" #name="ngModel" required>
-        <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
-        <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
-            Please enter a name.
-          </div>
+<form class="col s12" (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
+  <div class="col">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">people</i>
+      <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name" name="name" [(ngModel)]="group.name" #name="ngModel" required>
+      <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
+      <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+          Please enter a name.
+        </div>
+    </div>
+    <div class="invalid-feedback" *ngIf="apiError">
+        {{ apiError.message }}
       </div>
-      <div class="invalid-feedback" *ngIf="apiError">
-          {{ apiError.message }}
-        </div>
-      <div class="row">
-        <div class="form-actions">
-          <button type="submit" class="btn btn-block" [disabled]="!groupForm.valid">Add group</button>
-        </div>
+    <div class="row">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-block" [disabled]="!groupForm.valid">Add group</button>
       </div>
     </div>
-  </form>
+  </div>
+</form>

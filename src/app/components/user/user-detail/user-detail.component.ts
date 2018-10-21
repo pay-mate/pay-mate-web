@@ -1,15 +1,16 @@
-import { Payment } from './../../../shared/models/payment.model';
-import { PaymentService } from './../../../shared/services/payment.service';
-import { User } from './../../../shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs/operators';
+
+import { Payment } from './../../../shared/models/payment.model';
+import { User } from './../../../shared/models/user.model';
+import { UserService } from '../../../shared/services/user.service';
+import { PaymentService } from './../../../shared/services/payment.service';
+
+
 
 @Component({
   selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  templateUrl: './user-detail.component.html'
 })
 export class UserDetailComponent implements OnInit {
 
@@ -27,7 +28,6 @@ export class UserDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       const groupId = params.groupId;
       const userId = params.userId;
-      // console.log('LOS PARAMS', params);
 
       this.userService.select(groupId, userId)
         .subscribe(
@@ -35,7 +35,7 @@ export class UserDetailComponent implements OnInit {
         );
 
       this.paymentsService.list(groupId).subscribe((payments: Payment[]) => {
-        this.payments = payments.filter(p => p.payer === userId);
+        this.payments = payments.filter(payment => payment.payer === userId);
       });
     });
   }

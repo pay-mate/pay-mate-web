@@ -1,0 +1,22 @@
+html {
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+
+}
+
+body {
+    max-width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+select {
+    display: block !important;
+}
+
+form {
+    margin-top: 5%;
+
+}

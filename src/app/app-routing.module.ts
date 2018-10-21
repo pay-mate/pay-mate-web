@@ -17,25 +17,24 @@ import { PaymentCreateComponent } from './components/payment/payment-create/paym
 
 import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 
-
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent},
-    { path: 'groups', canActivate: [IsAuthenticatedGuard], component: GroupListComponent},
-    { path: 'groups/create', canActivate: [IsAuthenticatedGuard], component: GroupCreateComponent },
-    { path: 'groups/:groupId', canActivate: [IsAuthenticatedGuard], component: GroupDetailComponent },
-    { path: 'groups/:groupId/debts', canActivate: [IsAuthenticatedGuard], component: GroupResultComponent },
-    { path: 'groups/:groupId/users/create', canActivate: [IsAuthenticatedGuard], component: UserCreateComponent  },
-    { path: 'groups/:groupId/users/:userId', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
-    { path: 'groups/:groupId/payments/create', canActivate: [IsAuthenticatedGuard], component: PaymentCreateComponent  },
-    { path: 'groups/:groupId/payments/:paymentId', canActivate: [IsAuthenticatedGuard], component: PaymentDetailComponent  },
-    { path: '**', redirectTo: '/login' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent},
+  { path: 'groups', canActivate: [IsAuthenticatedGuard], component: GroupListComponent},
+  { path: 'groups/create', canActivate: [IsAuthenticatedGuard], component: GroupCreateComponent },
+  { path: 'groups/:groupId', canActivate: [IsAuthenticatedGuard], component: GroupDetailComponent },
+  { path: 'groups/:groupId/debts', canActivate: [IsAuthenticatedGuard], component: GroupResultComponent },
+  { path: 'groups/:groupId/users/create', canActivate: [IsAuthenticatedGuard], component: UserCreateComponent  },
+  { path: 'groups/:groupId/users/:userId', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
+  { path: 'groups/:groupId/payments/create', canActivate: [IsAuthenticatedGuard], component: PaymentCreateComponent  },
+  { path: 'groups/:groupId/payments/:paymentId', canActivate: [IsAuthenticatedGuard], component: PaymentDetailComponent  },
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule ({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 
 export class AppRoutingModule {}

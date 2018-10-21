@@ -1,15 +1,15 @@
-import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { ApiError } from '../../../shared/models/api-error.model';
+import { Router } from '@angular/router';
+
 
 import { Group } from './../../../shared/models/group.model';
-import { Route } from '@angular/compiler/src/core';
+import { ApiError } from '../../../shared/models/api-error.model';
+
 
 @Component({
   selector: 'app-group-form',
-  templateUrl: './group-form.component.html',
-  styleUrls: ['./group-form.component.css']
+  templateUrl: './group-form.component.html'
 })
 export class GroupFormComponent implements OnInit {
 

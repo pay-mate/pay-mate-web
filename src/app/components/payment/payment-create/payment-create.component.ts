@@ -7,8 +7,7 @@ import { PaymentService } from './../../../shared/services/payment.service';
 
 @Component({
   selector: 'app-payment-create',
-  templateUrl: './payment-create.component.html',
-  styleUrls: ['./payment-create.component.css']
+  templateUrl: './payment-create.component.html'
 })
 export class PaymentCreateComponent implements OnInit {
   @ViewChild(PaymentFormComponent) paymentFormComponent: PaymentFormComponent;

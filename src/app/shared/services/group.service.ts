@@ -1,10 +1,11 @@
-import { map, catchError, tap } from 'rxjs/operators';
-import { ApiError } from './../models/api-error.model';
 import { HttpClient } from '@angular/common/http';
-import { BaseApiService } from './base-api.service';
 import { Injectable } from '@angular/core';
-import { Group } from '../models/group.model';
 import { Subject, Observable } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
+
+import { Group } from '../models/group.model';
+import { ApiError } from './../models/api-error.model';
+import { BaseApiService } from './base-api.service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,12 +1,12 @@
-import { PaymentService } from './../../../shared/services/payment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 import { Payment } from '../../../shared/models/payment.model';
+import { PaymentService } from './../../../shared/services/payment.service';
 
 @Component({
   selector: 'app-payment-detail',
-  templateUrl: './payment-detail.component.html',
-  styleUrls: ['./payment-detail.component.css']
+  templateUrl: './payment-detail.component.html'
 })
 export class PaymentDetailComponent implements OnInit {
   payment: Payment = new Payment();
@@ -50,5 +50,3 @@ onDeletePayment() {
 }
 
 }
-
-

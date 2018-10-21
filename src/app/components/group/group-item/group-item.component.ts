@@ -1,12 +1,12 @@
-import { GroupService } from './../../../shared/services/group.service';
-import { Router } from '@angular/router';
-import { Group } from './../../../shared/models/group.model';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Group } from './../../../shared/models/group.model';
+import { GroupService } from './../../../shared/services/group.service';
 
 @Component({
   selector: 'app-group-item',
-  templateUrl: './group-item.component.html',
-  styleUrls: ['./group-item.component.css']
+  templateUrl: './group-item.component.html'
 })
 export class GroupItemComponent implements OnInit {
 

@@ -6,4 +6,3 @@ export class Group {
     image: string;
 
 }
-

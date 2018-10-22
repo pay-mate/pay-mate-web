@@ -1,59 +1,18 @@
-<footer> 
-  <div class="footer-copyright" *ngIf="!admin"> 
-    <div class="container">
-      <a class="grey-text center" href="/groups"><i class="material-icons">home</i></a>
-      <a class="grey-text center" href="/login"><i class="material-icons right">power_settings_new</i></a>
-    </div>
-  </div>
-</footer>
-<nav class="nav-extended">
-  <div class="nav-content center">
-    <span class="nav-title">{{user.name}}</span>
-  </div>
-</nav>
-<div class="col s12 m7">
-  <div class="card horizontal">
-    <div class="card-image">
-      <img src="{{user.image}}">
-    </div>
-    <div class="card-stacked">
-        <div class="card-content">
-            <span class="card-title">{{user.name}}</span>
-            <p class="" *ngFor="let payment of user.payments"><i class="tiny material-icons prefix">local_offer</i>
-              {{payment.subject}}</p>
-          </div>
-      <div>
-        <!-- <button class="card-title btn"><i class="material-icons prefix ">create</i></button> -->
-        <button class="card-title btn red" (click)="onDeleteUser()"><i class="material-icons prefix ">delete</i></button>
-      </div>
-    </div>
-  </div>
-  <nav class="nav-extended teal z-depth-3">
-    <div class="nav-content center">
-      <span class="nav-title">{{user.name}} payments</span>
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-        <i class="material-icons light-green z-depth-2" (click)="onLinkCreatePayment()">add_shopping_cart</i>
-      </a>
-    </div>
-  </nav>
+<div class="title card red lighten-2 z-depth-3 z-depth-3 center ">
+  <span class="title-text">{{user.name}}'s details</span>
+  <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+    <i class="material-icons red z-depth-2" (click)="onDeleteUser()">delete</i>
+  </a>
+</div>
 
-  <div class="row" *ngFor="let payment of payments">
-    <div class="col s12 m7">
-      <div class="card horizontal" (click)="onPaymentDetails(payment.id)">
-        <div class="card-image">
-          <img src="{{payment.image}}">
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <span class="card-title"><i class="material-icons prefix light-blue-text">local_offer</i>
-              {{payment.subject}}</span>
-            <span class="card-title"> <i class="material-icons prefix">attach_money</i> {{payment.amount}}</span>
-            <p class="card-title"> <i class="material-icons prefix">date_range</i>  {{payment.date | date: 'd/MM/yyyy'}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div>
+  <app-user-item [user]="user"></app-user-item>
+</div>
 
-  
+<div class="title card orange lighten-1 z-depth-3 center ">
+  <span class="title-text">{{user.name}}'s payments</span>
+</div>
 
+<div>
+  <app-payment-item *ngFor="let payment of payments" [payment]="payment"></app-payment-item>
+</div>

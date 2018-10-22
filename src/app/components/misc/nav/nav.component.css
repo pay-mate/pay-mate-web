@@ -1,0 +1,13 @@
+ul {
+  display: flex;
+  justify-content: space-between;
+margin: 0% 5%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  display: inline;
+}
+

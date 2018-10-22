@@ -8,21 +8,44 @@
     <div class="col">
       <div class="input-field col s6">
         <i class="material-icons prefix">people</i>
-        <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+        <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="User Name *" name="name" [(ngModel)]="user.name" #name="ngModel" required>
         <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
             Please enter a name.
           </div>
       </div>
-      <!-- <div class="input-field col s6">
-          <i class="material-icons prefix">camera</i>
-          <input type="text" [ngClass]="{'is-invalid': image.touched && image.errors}" placeholder="image URL" name="image" [(ngModel)]="user.image" #image="ngModel" required>
-          <div class="invalid-feedback" *ngIf="image.errors && image.touched && image.errors.required">
-              Please enter the imagen URL.
-            </div>
-        </div> -->
       <div class="invalid-feedback" *ngIf="apiError">
           {{ apiError.message }}
         </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">panorama</i>
+              <label for="icon_prefix">Image</label>
+            </div>
+          </div>
+        <div>
+            <div class="input-field col s12 m6">
+              <select [ngClass]="{'is-invalid': image.touched && image.errors}" name="image" [(ngModel)]="user.image"
+                #image="ngModel">
+                <optgroup label="Generic">
+                    <option value="https://image.freepik.com/vector-gratis/diseno-fondo-forma-cuerpo-humano_1319-56.jpg">Avatar</option>
+                </optgroup>
+                <optgroup label="Woman">
+                <option value="https://image.freepik.com/foto-gratis/adolescente-estudiante-estudio-cuerpo-brazo_1301-1902.jpg">Caucasian woman</option>
+                <option value="https://image.freepik.com/foto-gratis/alegre-mujer-raza-mixta-posando-selfie_1262-2966.jpg">African woman</option>
+                <option value="https://image.freepik.com/foto-gratis/primer-retrato-joven-mujer-negocios-asiatica_1262-1510.jpg">Oriental woman</option>
+
+              </optgroup>
+              <optgroup label="Man">
+                <option value="https://image.freepik.com/foto-gratis/adolescente-feliz-mostrando-gestos-positivos_1149-951.jpg">Caucasian man</option>
+                
+                <option value="https://image.freepik.com/foto-gratis/hombre-guapo-hablando-telefono_53876-42680.jpg">African man</option>
+                <option value="https://image.freepik.com/foto-gratis/retrato-hombre-negocios-asia-confianza_1262-1555.jpg">Oriental man</option>
+
+              </optgroup>
+                
+              </select>
+            </div>
+          </div>
       <div class="row">
         <div class="form-actions">
           <button type="submit" class="btn btn-block" [disabled]="!userForm.valid">Add user</button>

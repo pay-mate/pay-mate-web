@@ -18,5 +18,20 @@ select {
 
 form {
     margin-top: 5%;
+}
 
+.title {
+    padding: 5%;
+    text-align: center;
+}
+
+.title-text {
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.btn-icon {
+    margin: 5%;
 }

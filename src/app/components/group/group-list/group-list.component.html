@@ -1,19 +1,15 @@
-<footer> 
-  <div class="footer-copyright" *ngIf="!admin"> 
-    <div class="container">
-      <a class="grey-text center" href="/groups"><i class="material-icons">home</i></a>
-      <a class="grey-text center" href="/login"><i class="material-icons right">power_settings_new</i></a>
-    </div>
-  </div>
-</footer>
-<nav class="nav-extended light-blue cyan z-depth-3">
-    <div class="nav-content center">
-      <span class="nav-title">Your groups list </span>
-      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
-        <i class="material-icons" (click)="onCreateGroup()" >group_add</i>
-      </a>
-    </div>
-  </nav>
-<div class="">
-    <app-group-item *ngFor="let group of groups" [group]="group"></app-group-item>
+<title>
+  <p>Your groups list</p>
+</title>
+
+<div class="title card red lighten-2 z-depth-3 center ">
+  <span class="title-text">Your groups list </span>
+  <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
+    <i class="material-icons" (click)="onCreateGroup()">group_add</i>
+  </a>
+</div>
+
+
+<div>
+  <app-group-item *ngFor="let group of groups" [group]="group"></app-group-item>
 </div>

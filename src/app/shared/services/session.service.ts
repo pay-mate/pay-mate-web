@@ -51,7 +51,7 @@ export class SessionService extends BaseApiService {
   }
 
   isAuthenticated(): boolean {
-    return this.admin ? true : true;
+    return this.admin ? true : false;
   }
 
   private notifyAdminChanges(): void {

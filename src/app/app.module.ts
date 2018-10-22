@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/misc/login/login.component';
 import { RegisterComponent } from './components/misc/register/register.component';
+import { NavComponent } from './components/misc/nav/nav.component';
 
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
@@ -19,24 +20,31 @@ import { GroupResultComponent } from './components/group/group-result/group-resu
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 import { UserFormComponent } from './components/user/user-form/user-form.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
+import { UserItemComponent } from './components/user/user-item/user-item.component';
+
 import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
+import { PaymentItemComponent } from './components/payment/payment-item/payment-item.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    NavComponent,
     GroupItemComponent,
     GroupListComponent,
     GroupDetailComponent,
     GroupFormComponent,
     GroupCreateComponent,
     GroupResultComponent,
+    UserItemComponent,
     UserDetailComponent,
     UserFormComponent,
     UserCreateComponent,
+    PaymentItemComponent,
     PaymentCreateComponent,
     PaymentDetailComponent,
     PaymentFormComponent

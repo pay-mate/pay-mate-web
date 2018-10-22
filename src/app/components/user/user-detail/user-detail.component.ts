@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 import { Payment } from './../../../shared/models/payment.model';
 import { User } from './../../../shared/models/user.model';
@@ -14,7 +14,7 @@ import { PaymentService } from './../../../shared/services/payment.service';
 })
 export class UserDetailComponent implements OnInit {
 
-  user: User = new User();
+  @Output() user: User = new User();
   payments: Payment[] = [];
 
   constructor(

@@ -5,23 +5,46 @@
 </nav>
 
 <div class="container">
-<form class="col s12" (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
-  <div class="col">
-    <div class="input-field col s6">
-      <i class="material-icons prefix">people</i>
-      <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name" name="name" [(ngModel)]="group.name" #name="ngModel" required>
-      <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
-      <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+  <form class="col s12" (ngSubmit)="onSubmitGroupForm()" #groupForm="ngForm">
+    <div class="col">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">people</i>
+        <input type="text" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Group Name *" name="name"
+          [(ngModel)]="group.name" #name="ngModel" required>
+        <!-- <span class="helper-text" data-error="wrong" data-success="right">Helper text</span> -->
+        <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
           Please enter a name.
         </div>
-    </div>
-    <div class="invalid-feedback" *ngIf="apiError">
+      </div>
+      <div class="invalid-feedback" *ngIf="apiError">
         {{ apiError.message }}
       </div>
-    <div class="row">
-      <div class="form-actions">
-        <button type="submit" class="btn btn-block" [disabled]="!groupForm.valid">Add group</button>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">panorama</i>
+          <label for="icon_prefix">Image</label>
+        </div>
+      </div>
+      <div>
+        <div class="input-field col s12 m6">
+          <select [ngClass]="{'is-invalid': image.touched && image.errors}" name="image" [(ngModel)]="group.image"
+            #image="ngModel">
+            <option value="https://image.freepik.com/vector-gratis/ilustracion-personaje-personas-iconos-cuenta-usuario_53876-43022.jpg">Generic</option>
+            <option value="https://image.freepik.com/foto-gratis/flat-lay-of-real-estate-concept_53876-31284.jpg">House</option>
+            <option value="https://image.freepik.com/foto-gratis/ilustracion-pastel-cumpleanos_53876-23079.jpg">Bithday Celebration</option>
+            <option value="https://image.freepik.com/vector-gratis/cartel-fiesta-halloween_1308-14834.jpg">Haloween</option>
+            
+            <option value="https://image.freepik.com/vector-gratis/es-letras-tiempo-navidad_52683-709.jpg">Christmas</option>
+          
+            <option value="https://image.freepik.com/vector-gratis/ilustracion-personas-disfrutando-verano_53876-26723.jpg">Travel/Hollidays</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-block" [disabled]="!groupForm.valid">Add group</button>
+        </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+

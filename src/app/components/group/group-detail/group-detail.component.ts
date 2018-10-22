@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from '../../../shared/models/user.model';
@@ -54,14 +54,6 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['groups/', this.group.id, 'users', userId]);
   }
 
-  // onUserDelete(groupId: string, id: string) {
-  //   this.route.params.subscribe(params => {
-  //     const groupId = params.groupId;
-  //     this.userService.delete(groupId, id)
-  //       .subscribe(() => { });
-  //   });
-  // }
-
   onPaymentDetails(paymentId: string) {
     this.router.navigate(['groups/', this.group.id, 'payments', paymentId]);
   }
@@ -70,7 +62,7 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['groups/', this.group.id, 'users', 'create']);
   }
 
-    onLinkCreatePayment() {
+  onLinkCreatePayment() {
     this.router.navigate(['groups/', this.group.id, 'payments', 'create']);
   }
 

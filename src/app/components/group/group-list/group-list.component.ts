@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Group } from './../../../shared/models/group.model';
 import { GroupService } from '../../../shared/services/group.service';

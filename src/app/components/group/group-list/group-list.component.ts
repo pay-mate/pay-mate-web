@@ -29,6 +29,7 @@ export class GroupListComponent implements OnInit, OnDestroy {
     this.router.navigate(['groups/create']);
   }
 
+
   ngOnDestroy(): void {
     this.onGroupChangesSubscription.unsubscribe();
   }

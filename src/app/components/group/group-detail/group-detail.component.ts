@@ -70,5 +70,26 @@ export class GroupDetailComponent implements OnInit {
     this.router.navigate(['groups/', this.group.id, 'debts']);
   }
 
+  onGoGroup() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'users']);
+    });
+  }
+
+  onGoPayments() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'payments']);
+    });
+  }
+
+  onGoDebt() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'debts']);
+    });
+  }
+
 }
 

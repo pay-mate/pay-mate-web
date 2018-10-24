@@ -1,4 +1,3 @@
-
 <div class="navbar-fixed">
   <nav class="white">
     <ul>
@@ -21,27 +20,8 @@
       </li>
     </ul>
   </nav>
-</div>
-<div class="title card red lighten-2 z-depth-3 center ">
-  <span class="title-text">{{group.name}} group</span>
-  <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal pulse z-depth-2">
-    <i class="material-icons" (click)="onLinkDebts()">account_balance</i>
-  </a>
-</div>
-
-<div class="title card orange lighten-1 z-depth-3">
-  <span class="title-text">{{group.name}}'s payments</span>
-  <a class="btn-floating btn-large halfway-fab waves-effect waves-light light-green z-depth-2">
-    <i class="material-icons" (click)="onLinkCreatePayment()">add_shopping_cart</i>
-  </a>
-</div>
-
-<div>
-  <app-payment-item *ngFor="let payment of payments" [payment]="payment"></app-payment-item>
-</div>
-
-<div class="title card orange lighten-1 z-depth-3">
-  <span class="title-text">{{group.name}}'s users</span>
+</div><div class="title card red lighten-2 z-depth-3 center ">
+  <span class="title-text">"{{group.name}}" users</span>
   <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal light-green z-depth-2">
     <i class="material-icons" (click)="onLinkCreateUser()">person_add</i>
   </a>

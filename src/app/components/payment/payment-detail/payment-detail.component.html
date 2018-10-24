@@ -1,3 +1,26 @@
+<div class="navbar-fixed">
+  <nav class="white">
+    <ul>
+      <li routerLinkActive="active"><a class="grey-text center" href="/groups"><i class="material-icons">home</i></a>
+      </li>
+      <li routerLinkActive="active">  <a class="grey-text center">
+        <i class="material-icons" (click)="onGoGroup()">group</i>
+      </a>
+      </li>
+      <li routerLinkActive="active">  <a class="grey-text center">
+        <i class="material-icons" (click)="onGoPayments()">shopping_cart</i>
+      </a>
+      </li>
+      <li routerLinkActive="active">  <a class="grey-text center">
+        <i class="material-icons" (click)="onGoDebt()">account_balance</i>
+      </a>
+      </li>
+      <li routerLinkActive="active" *ngIf="router.url.includes('/groups')"><a class="grey-text center" href="/login"><i
+            class="material-icons">logout</i></a>
+      </li>
+    </ul>
+  </nav>
+</div>
 <div class="title card red lighten-2 z-depth-3 center ">
   <span class="title-text">{{payment.subject}} details</span>
   <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">

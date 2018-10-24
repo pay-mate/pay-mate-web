@@ -11,8 +11,10 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 
 import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
 
 import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
+import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 import { PaymentCreateComponent } from './components/payment/payment-create/payment-create.component';
 
 import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
@@ -25,9 +27,11 @@ const routes: Routes = [
   { path: 'groups/create', canActivate: [IsAuthenticatedGuard], component: GroupCreateComponent },
   { path: 'groups/:groupId', canActivate: [IsAuthenticatedGuard], component: GroupDetailComponent },
   { path: 'groups/:groupId/debts', canActivate: [IsAuthenticatedGuard], component: GroupResultComponent },
+  { path: 'groups/:groupId/users', canActivate: [IsAuthenticatedGuard], component: UserListComponent  },
   { path: 'groups/:groupId/users/create', canActivate: [IsAuthenticatedGuard], component: UserCreateComponent  },
   { path: 'groups/:groupId/users/:userId', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
   { path: 'groups/:groupId/payments/create', canActivate: [IsAuthenticatedGuard], component: PaymentCreateComponent  },
+  { path: 'groups/:groupId/payments', canActivate: [IsAuthenticatedGuard], component: PaymentListComponent },
   { path: 'groups/:groupId/payments/:paymentId', canActivate: [IsAuthenticatedGuard], component: PaymentDetailComponent  },
   { path: '**', redirectTo: '/login' }
 ];

@@ -28,25 +28,44 @@ export class PaymentDetailComponent implements OnInit {
             const month = payment.date;
           }
         );
-  });
-}
-
-onPaymentDetails(paymentId: string) {
-  this.route.params.subscribe(params => {
-    const groupId = params.groupId;
-    this.router.navigate(['groups/', groupId, 'payments', paymentId]);
-  });
-}
-
-onDeletePayment() {
-  this.route.params.subscribe(params => {
-    const groupId = params.groupId;
-    const paymentId = params.paymentId;
-    this.paymentService.delete(groupId, paymentId)
-      .subscribe(() => { });
-      this.router.navigate(['groups/', groupId]);
+    });
   }
-  );
-}
 
+  onPaymentDetails(paymentId: string) {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'payments', paymentId]);
+    });
+  }
+
+  onDeletePayment() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      const paymentId = params.paymentId;
+      this.paymentService.delete(groupId, paymentId)
+        .subscribe(() => { });
+      this.router.navigate(['groups/', groupId]);
+    });
+  }
+
+  onGoGroup() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'users']);
+    });
+  }
+
+  onGoPayments() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'payments']);
+    });
+  }
+
+  onGoDebt() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'debts']);
+    });
+  }
 }

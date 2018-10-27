@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 import { Group } from './../../../shared/models/group.model';
@@ -21,6 +21,7 @@ export class GroupFormComponent implements OnInit {
   constructor(
     private changesDetector: ChangeDetectorRef,
     private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -38,5 +39,24 @@ export class GroupFormComponent implements OnInit {
     this.groupForm.reset();
   }
 
+  onGoGroup() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'users']);
+    });
+  }
 
+  onGoPayments() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'payments']);
+    });
+  }
+
+  onGoDebt() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'debts']);
+    });
+  }
 }

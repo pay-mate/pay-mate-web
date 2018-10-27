@@ -49,5 +49,26 @@ export class UserFormComponent implements OnInit {
     this.userForm.reset();
   }
 
+  onGoGroup() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'users']);
+    });
+  }
+
+  onGoPayments() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'payments']);
+    });
+  }
+
+  onGoDebt() {
+    this.route.params.subscribe(params => {
+      const groupId = params.groupId;
+      this.router.navigate(['groups/', groupId, 'debts']);
+    });
+  }
+
 }
 

@@ -1,1 +1,24 @@
-
+<div *ngIf="admin" class="navbar-fixed">
+  <nav class="white">
+    <ul>
+      <li><a class="grey-text center" (click)="onClickHome()" [routerLink]="['/groups']"><i class="material-icons">home</i></a>
+      </li>
+      <div *ngIf="group" class="list">
+        <li> <a class="grey-text center" [routerLink]="['/groups', group.id, 'users']">
+            <i class="material-icons">group</i>
+          </a>
+        </li>
+        <li> <a class="grey-text center" [routerLink]="['/groups', group.id, 'payments']">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+        <li> <a class="grey-text center" [routerLink]="['/groups', group.id, 'debts']">
+            <i class="material-icons">account_balance</i>
+          </a>
+        </li>
+      </div>
+      <li><a class="grey-text center"><i class="material-icons">logout</i></a>
+      </li>
+    </ul>
+  </nav>
+</div>

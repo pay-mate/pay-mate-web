@@ -1,0 +1,10 @@
+<div class="title card red lighten-2 z-depth-3 center ">
+  <span class="title-text">"{{group.name}}" payments</span>
+  <a class="btn-floating btn-large halfway-fab waves-effect waves-light light-green z-depth-2">
+    <i class="material-icons" (click)="onLinkCreatePayment()">add_shopping_cart</i>
+  </a>
+</div>
+
+<div>
+  <app-payment-item *ngFor="let payment of payments" [payment]="payment"></app-payment-item>
+</div>

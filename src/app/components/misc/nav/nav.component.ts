@@ -1,5 +1,7 @@
+import { map } from 'rxjs/operators';
+import { GroupService } from './../../../shared/services/group.service';
 import { Group } from './../../../shared/models/group.model';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -12,25 +14,40 @@ import { SessionService } from './../../../shared/services/session.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit, OnDestroy {
-
   admin: Admin;
- group: Group = new Group();
+  group: Group;
+  groupId: string;
+  groups: Group [] = [];
   onAdminChanges: Subscription;
+  onGroupChangesSubscription: Subscription;
+  onGroupChanges: Subscription;
 
   constructor(
     private sessionService: SessionService,
+    private groupService: GroupService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.admin = this.sessionService.admin;
     this.onAdminChanges = this.sessionService.onAdminChanges()
-      .subscribe((admin: Admin) => this.admin = admin);
+    .subscribe((admin: Admin) => this.admin = admin);
+
+      this.onGroupChanges = this.groupService.onGroupChanges()
+      .subscribe((group: Group) => {
+      this.group = group;
+    });
+
+
   }
 
   ngOnDestroy() {
     this.onAdminChanges.unsubscribe();
+    this.onGroupChanges.unsubscribe();
+  }
+
+  onClickHome(): void {
+    this.groupService.groupLogout();
   }
 
   onClickLogout(): void {
@@ -39,5 +56,6 @@ export class NavComponent implements OnInit, OnDestroy {
         this.router.navigate(['/login']);
       });
   }
-
 }
+
+

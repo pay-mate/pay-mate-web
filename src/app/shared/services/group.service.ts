@@ -14,7 +14,9 @@ export class GroupService extends BaseApiService {
   private static readonly GROUP_API = `${BaseApiService.BASE_API}/groups`;
 
   private groups: Array<Group> = [];
+  group: Group;
   private groupsSubject: Subject <Array<Group>> = new Subject();
+  private groupSubject: Subject <Group> = new Subject();
 
 
   constructor(private http: HttpClient) {
@@ -51,7 +53,12 @@ export class GroupService extends BaseApiService {
   select(id: String): Observable<Group | ApiError> {
     return this.http.get<Group>(`${GroupService.GROUP_API}/${id}`, BaseApiService.defaultOptions)
     .pipe(
-      map((group: Group) => Object.assign(new Group(), group)),
+      map((group: Group) => {
+        Object.assign(new Group(), group);
+        this.group = group;
+        this.notifyGroupChanges();
+        return group;
+      }),
       catchError(this.handleError));
   }
 
@@ -72,12 +79,25 @@ export class GroupService extends BaseApiService {
         catchError(this.handleError));
     }
 
-  onGroupChanges(): Observable<Array<Group>> {
+  onGroupsChanges(): Observable<Array<Group>> {
     return this.groupsSubject.asObservable();
+  }
+
+  onGroupChanges(): Observable<Group> {
+    return this.groupSubject.asObservable();
+  }
+
+  groupLogout(): void {
+    this.group = null;
+    this.notifyGroupChanges();
   }
 
   private notifyGroupsChanges(): void {
     this.groupsSubject.next(this.groups);
+  }
+
+  private notifyGroupChanges(): void {
+    this.groupSubject.next(this.group);
   }
 
 }

@@ -26,6 +26,8 @@ import { PaymentCreateComponent } from './components/payment/payment-create/paym
 import { PaymentDetailComponent } from './components/payment/payment-detail/payment-detail.component';
 import { PaymentFormComponent } from './components/payment/payment-form/payment-form.component';
 import { PaymentItemComponent } from './components/payment/payment-item/payment-item.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
+import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { PaymentItemComponent } from './components/payment/payment-item/payment-
     PaymentItemComponent,
     PaymentCreateComponent,
     PaymentDetailComponent,
-    PaymentFormComponent
+    PaymentFormComponent,
+    UserListComponent,
+    PaymentListComponent
   ],
   imports: [
     BrowserModule,

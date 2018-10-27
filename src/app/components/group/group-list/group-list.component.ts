@@ -22,12 +22,13 @@ export class GroupListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.groupService.list()
     .subscribe((groups: Array<Group>) => this.groups = groups);
-    this.onGroupChangesSubscription = this.groupService.onGroupChanges().subscribe((groups: Array<Group>) => this.groups = groups);
+    this.onGroupChangesSubscription = this.groupService.onGroupsChanges().subscribe((groups: Array<Group>) => this.groups = groups);
   }
 
   onCreateGroup() {
     this.router.navigate(['groups/create']);
   }
+
 
   ngOnDestroy(): void {
     this.onGroupChangesSubscription.unsubscribe();

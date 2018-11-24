@@ -11,6 +11,7 @@ import { Payment } from '../../../shared/models/payment.model';
 })
 export class PaymentListComponent implements OnInit {
   group: Group = new Group();
+  groupName = this.group.name;
   payments: Payment[] = [];
 
   constructor(
